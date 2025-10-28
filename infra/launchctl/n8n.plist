@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.n8n</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/n8n</string>
+        <string>start</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/andrejsp/ai</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS</key>
+        <string>true</string>
+        <key>N8N_PORT</key>
+        <string>5678</string>
+        <key>N8N_HOST</key>
+        <string>localhost</string>
+        <key>N8N_PROTOCOL</key>
+        <string>http</string>
+        <key>N8N_EDITOR_BASE_URL</key>
+        <string>http://localhost:5678</string>
+        <key>N8N_WEBHOOK_URL</key>
+        <string>http://localhost:5678</string>
+        <key>N8N_DISABLE_UI</key>
+        <string>false</string>
+        <key>N8N_DISABLE_PRODUCTION_MAIN_PROCESS</key>
+        <string>false</string>
+        <key>N8N_LOG_LEVEL</key>
+        <string>info</string>
+        <key>N8N_LOG_OUTPUT</key>
+        <string>console,file</string>
+        <key>N8N_LOG_FILE_LOCATION</key>
+        <string>/Users/andrejsp/ai/logs/n8n.log</string>
+        <key>N8N_DATABASE_TYPE</key>
+        <string>sqlite</string>
+        <key>N8N_DATABASE_SQLITE_DATABASE</key>
+        <string>/Users/andrejsp/.n8n/database.sqlite</string>
+        <key>N8N_DATABASE_SQLITE_POOL_SIZE</key>
+        <string>10</string>
+        <key>N8N_RUNNERS_ENABLED</key>
+        <string>true</string>
+        <key>N8N_BLOCK_ENV_ACCESS_IN_NODE</key>
+        <string>false</string>
+        <key>N8N_GIT_NODE_DISABLE_BARE_REPOS</key>
+        <string>true</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/andrejsp/ai/logs/n8n.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/andrejsp/ai/logs/n8n.err</string>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    <key>ExitTimeOut</key>
+    <integer>30</integer>
+</dict>
+</plist>

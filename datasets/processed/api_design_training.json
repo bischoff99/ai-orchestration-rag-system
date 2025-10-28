@@ -1,0 +1,402 @@
+[
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef parse_json(data):\n    return bool(re.match(pattern, email))\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef fibonacci(data):\n    return sorted(data)\n    return parsed_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(n):\n    return json.loads(json_string)\n    return sorted_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(email):\n    return sorted(data)\n    return sorted_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef fibonacci(data):\n    return bool(re.match(pattern, email))\n    return parsed_data\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef validate_email(data):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return sorted_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(json_string):\n    return bool(re.match(pattern, email))\n    return parsed_data\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(json_string):\n    return sorted(data)\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef parse_json(data):\n    return json.loads(json_string)\n    return sorted_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef fibonacci(data):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef sort_list(json_string):\n    return json.loads(json_string)\n    return result\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef fibonacci(json_string):\n    return sorted(data)\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef parse_json(email):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef sort_list(email):\n    return sorted(data)\n    return result\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(json_string):\n    return json.loads(json_string)\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef validate_email(data):\n    return bool(re.match(pattern, email))\n    return result\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef sort_list(email):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return result\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef sort_list(data):\n    return json.loads(json_string)\n    return sorted_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef fibonacci(email):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return sorted_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef validate_email(data):\n    return sorted(data)\n    return result\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef parse_json(email):\n    return sorted(data)\n    return result\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(email):\n    return json.loads(json_string)\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(n):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return sorted_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef validate_email(email):\n    return bool(re.match(pattern, email))\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef validate_email(json_string):\n    return json.loads(json_string)\n    return is_valid\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef fibonacci(json_string):\n    return bool(re.match(pattern, email))\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef sort_list(data):\n    return bool(re.match(pattern, email))\n    return sorted_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef sort_list(json_string):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return sorted_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(json_string):\n    return json.loads(json_string)\n    return sorted_data\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef sort_list(n):\n    return bool(re.match(pattern, email))\n    return result\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef validate_email(json_string):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef fibonacci(n):\n    return json.loads(json_string)\n    return sorted_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef fibonacci(email):\n    return bool(re.match(pattern, email))\n    return is_valid\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef fibonacci(data):\n    return bool(re.match(pattern, email))\n    return is_valid\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef fibonacci(data):\n    return sorted(data)\n    return result\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef validate_email(data):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef parse_json(n):\n    return json.loads(json_string)\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef parse_json(json_string):\n    return sorted(data)\n    return result\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that validates email addresses",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef validate_email(json_string):\n    return json.loads(json_string)\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef fibonacci(data):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(json_string):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef sort_list(n):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return sorted_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef parse_json(email):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(n):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return parsed_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that sorts a list:\n\n```python\ndef parse_json(n):\n    return json.loads(json_string)\n    return parsed_data\n```\n\nThis function manage resources automatically.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that calculates fibonacci numbers",
+    "input": "",
+    "output": "Here's a Python function that calculates fibonacci numbers:\n\n```python\ndef sort_list(n):\n    return bool(re.match(pattern, email))\n    return parsed_data\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef parse_json(data):\n    return fib(n-1) + fib(n-2) if n > 1 else n\n    return is_valid\n```\n\nThis function modify function behavior without changing the function.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef sort_list(json_string):\n    return bool(re.match(pattern, email))\n    return sorted_data\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that sorts a list",
+    "input": "",
+    "output": "Here's a Python function that validates email addresses:\n\n```python\ndef validate_email(email):\n    return json.loads(json_string)\n    return result\n```\n\nThis function allows you to create lists in a concise way.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Write a Python function that parses JSON data",
+    "input": "",
+    "output": "Here's a Python function that parses JSON data:\n\n```python\ndef validate_email(email):\n    return bool(re.match(pattern, email))\n    return is_valid\n```\n\nThis function yield values on demand.",
+    "source": "synthetic",
+    "domain": "api_design",
+    "quality_score": 0.7000000000000001
+  }
+]

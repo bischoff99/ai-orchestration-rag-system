@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.rag.orchestrator.v2.ultra.optimized</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/andrejsp/ai/infra/ultra_optimized_service_manager.py</string>
+        <string>start</string>
+    </array>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/Users/andrejsp/ai</string>
+        <key>RAG_ORCHESTRATOR_MODE</key>
+        <string>Production</string>
+        <key>RAG_ORCHESTRATOR_VERSION</key>
+        <string>ultra-optimized</string>
+    </dict>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/andrejsp/ai/logs/rag_orchestrator_ultra_optimized.out</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/andrejsp/ai/logs/rag_orchestrator_ultra_optimized.err</string>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/andrejsp/ai</string>
+    
+    <key>ProcessType</key>
+    <string>Background</string>
+    
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    
+    <key>ExitTimeOut</key>
+    <integer>30</integer>
+</dict>
+</plist>

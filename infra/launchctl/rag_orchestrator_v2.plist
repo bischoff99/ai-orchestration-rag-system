@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.rag-orchestrator-v2</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/andrejsp/ai/infra/rag_orchestrator_service.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/andrejsp/ai</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/Users/andrejsp/ai</string>
+        <key>RAG_ORCHESTRATOR_CONFIG</key>
+        <string>/Users/andrejsp/ai/configs/rag_orchestrator_config.json</string>
+        <key>RAG_ORCHESTRATOR_MODE</key>
+        <string>production</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/andrejsp/ai/logs/rag_orchestrator.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/andrejsp/ai/logs/rag_orchestrator.err</string>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    <key>ExitTimeOut</key>
+    <integer>30</integer>
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

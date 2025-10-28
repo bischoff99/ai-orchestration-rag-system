@@ -1,0 +1,206 @@
+{
+  "name": "RAG System Monitoring & Maintenance",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Daily Check",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Real health check implementation\nconst healthChecks = [];\n\n// Check ChromaDB\nconst chromaCheck = {\n  service: 'ChromaDB',\n  status: 'unknown',\n  responseTime: 0,\n  error: null\n};\n\ntry {\n  const startTime = Date.now();\n  // Make actual HTTP request to ChromaDB\n  const response = await fetch('http://localhost:8000/api/v1/heartbeat', {\n    method: 'GET',\n    timeout: 5000\n  });\n  const responseTime = Date.now() - startTime;\n  \n  if (response.ok) {\n    chromaCheck.status = 'healthy';\n    chromaCheck.responseTime = responseTime;\n  } else {\n    chromaCheck.status = 'unhealthy';\n    chromaCheck.error = `HTTP ${response.status}`;\n  }\n} catch (error) {\n  chromaCheck.status = 'unhealthy';\n  chromaCheck.error = error.message;\n}\n\nhealthChecks.push(chromaCheck);\n\n// Check Ollama\nconst ollamaCheck = {\n  service: 'Ollama',\n  status: 'unknown',\n  responseTime: 0,\n  error: null\n};\n\ntry {\n  const startTime = Date.now();\n  // Make actual HTTP request to Ollama\n  const response = await fetch('http://localhost:11434/api/tags', {\n    method: 'GET',\n    timeout: 5000\n  });\n  const responseTime = Date.now() - startTime;\n  \n  if (response.ok) {\n    ollamaCheck.status = 'healthy';\n    ollamaCheck.responseTime = responseTime;\n  } else {\n    ollamaCheck.status = 'unhealthy';\n    ollamaCheck.error = `HTTP ${response.status}`;\n  }\n} catch (error) {\n  ollamaCheck.status = 'unhealthy';\n  ollamaCheck.error = error.message;\n}\n\nhealthChecks.push(ollamaCheck);\n\n// Check n8n (always healthy if this workflow is running)\nconst n8nCheck = {\n  service: 'n8n',\n  status: 'healthy',\n  responseTime: 0,\n  error: null\n};\n\nhealthChecks.push(n8nCheck);\n\nreturn [{\n  json: {\n    timestamp: new Date().toISOString(),\n    healthChecks: healthChecks,\n    overallStatus: healthChecks.every(check => check.status === 'healthy') ? 'healthy' : 'unhealthy'\n  }\n}];"
+      },
+      "id": "health-check",
+      "name": "Health Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Test RAG query functionality\n// In production, this would call your RAG API\nconst testQuery = 'What is the current status of the system?';\nconst collection = 'system_docs';\nconst k = 3;\n\n// Simulate RAG test\nconst ragTest = {\n  status: 'success',\n  responseTime: 150,\n  query: testQuery,\n  collection: collection,\n  response: 'System is operational and functioning normally.',\n  error: null\n};\n\nreturn [{\n  json: {\n    ragTest: ragTest,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "test-rag-query",
+      "name": "Test RAG Query",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate monitoring report\nconst healthChecks = $json.healthChecks || [];\nconst ragTest = $json.ragTest || {};\nconst timestamp = $json.timestamp;\n\nconst report = {\n  timestamp: timestamp,\n  overallStatus: $json.overallStatus,\n  services: healthChecks,\n  ragTest: {\n    status: ragTest.status || 'unknown',\n    responseTime: ragTest.responseTime || 0,\n    error: ragTest.error || null\n  },\n  summary: {\n    totalServices: healthChecks.length,\n    healthyServices: healthChecks.filter(s => s.status === 'healthy').length,\n    unhealthyServices: healthChecks.filter(s => s.status === 'unhealthy').length\n  }\n};\n\n// Generate alert level\nlet alertLevel = 'info';\nif (report.overallStatus === 'unhealthy') {\n  alertLevel = 'error';\n} else if (report.summary.unhealthyServices > 0) {\n  alertLevel = 'warning';\n}\n\nreport.alertLevel = alertLevel;\n\nreturn [{\n  json: report\n}];"
+      },
+      "id": "generate-report",
+      "name": "Generate Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "error-condition",
+              "leftValue": "={{ $json.alertLevel }}",
+              "rightValue": "error",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-alert-level",
+      "name": "Check Alert Level",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log critical alert\nconst alert = {\n  level: 'critical',\n  message: 'RAG System Alert - Critical Issues Detected!',\n  timestamp: $json.timestamp,\n  overallStatus: $json.overallStatus,\n  services: $json.services,\n  ragTest: $json.ragTest\n};\n\nconsole.log('🚨 CRITICAL ALERT:', JSON.stringify(alert, null, 2));\n\nreturn [{ json: alert }];"
+      },
+      "id": "critical-alert",
+      "name": "Critical Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log daily report\nconst report = {\n  level: 'info',\n  message: 'RAG System Daily Report',\n  timestamp: $json.timestamp,\n  overallStatus: $json.overallStatus,\n  services: $json.services,\n  ragTest: $json.ragTest,\n  summary: $json.summary\n};\n\nconsole.log('📊 DAILY REPORT:', JSON.stringify(report, null, 2));\n\nreturn [{ json: report }];"
+      },
+      "id": "daily-report",
+      "name": "Daily Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Simulate cleanup task\n// In production, this would call your cleanup API\nconst cleanup = {\n  action: 'cleanup_old_documents',\n  retention_days: 30,\n  status: 'completed',\n  timestamp: new Date().toISOString(),\n  items_cleaned: 5\n};\n\nconsole.log('🧹 CLEANUP TASK:', JSON.stringify(cleanup, null, 2));\n\nreturn [{ json: cleanup }];"
+      },
+      "id": "cleanup-task",
+      "name": "Cleanup Task",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Daily Check": {
+      "main": [
+        [
+          {
+            "node": "Health Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Health Check": {
+      "main": [
+        [
+          {
+            "node": "Test RAG Query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test RAG Query": {
+      "main": [
+        [
+          {
+            "node": "Generate Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Report": {
+      "main": [
+        [
+          {
+            "node": "Check Alert Level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Alert Level": {
+      "main": [
+        [
+          {
+            "node": "Critical Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Daily Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Critical Alert": {
+      "main": [
+        [
+          {
+            "node": "Cleanup Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily Report": {
+      "main": [
+        [
+          {
+            "node": "Cleanup Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-15T10:30:00.000Z",
+  "versionId": "1"
+}

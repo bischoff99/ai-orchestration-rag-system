@@ -1,0 +1,31 @@
+{
+  "database": {
+    "type": "sqlite",
+    "location": "/Users/andrejsp/ai/n8n/data/database.sqlite"
+  },
+  "credentials": {
+    "overwrite": {
+      "data": {
+        "encryptionKey": "your-encryption-key-here"
+      }
+    }
+  },
+  "endpoints": {
+    "rest": "rest",
+    "webhook": "webhook",
+    "webhookWaiting": "webhook-waiting",
+    "webhookTest": "webhook-test"
+  },
+  "publicApi": {
+    "enabled": true,
+    "path": "api"
+  },
+  "workflows": {
+    "defaultName": "My workflow"
+  },
+  "logging": {
+    "level": "info",
+    "file": "/Users/andrejsp/ai/n8n/data/n8n.log"
+  },
+  "timezone": "UTC"
+}

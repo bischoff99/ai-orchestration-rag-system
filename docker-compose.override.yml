@@ -1,0 +1,44 @@
+# Development overrides for docker-compose.yml
+# This file is automatically loaded by docker-compose
+
+version: '3.8'
+
+services:
+  # Development overrides
+  rag-api:
+    volumes:
+      - ./scripts:/app/scripts:ro
+      - ./configs:/app/configs:ro
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-m", "uvicorn", "scripts.rag_api:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+
+  training-service:
+    volumes:
+      - ./scripts:/app/scripts:ro
+      - ./datasets:/app/datasets:ro
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=DEBUG
+
+  monitoring:
+    volumes:
+      - ./scripts:/app/scripts:ro
+      - ./benchmarks:/app/benchmarks:ro
+    environment:
+      - LOG_LEVEL=DEBUG
+
+  # Development tools
+  dev-tools:
+    image: python:3.11-slim
+    container_name: ai-dev-tools
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /app
+    environment:
+      - PYTHONPATH=/app
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - ai-network

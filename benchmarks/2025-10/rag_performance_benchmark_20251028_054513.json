@@ -1,0 +1,483 @@
+{
+  "timestamp": "2025-10-28T05:45:13.408022",
+  "orchestrator_version": "2.0.0-optimized",
+  "test_queries": [
+    "What is machine learning?",
+    "How does Docker work?",
+    "Explain Python programming",
+    "What are vector databases?",
+    "What is RAG?",
+    "How do I optimize database performance?",
+    "What are microservices?",
+    "Explain API design best practices",
+    "How does caching work?",
+    "What is containerization?"
+  ],
+  "individual_results": [
+    {
+      "query": "What is machine learning?",
+      "iterations": 2,
+      "latencies": [
+        1.1240367889404297,
+        0.0006649494171142578
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 0.562350869178772,
+      "min_latency": 0.0006649494171142578,
+      "max_latency": 1.1240367889404297,
+      "std_latency": 0.7943438455209424,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "How does Docker work?",
+      "iterations": 2,
+      "latencies": [
+        5.985318899154663,
+        0.0012433528900146484
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 2.993281126022339,
+      "min_latency": 0.0012433528900146484,
+      "max_latency": 5.985318899154663,
+      "std_latency": 4.231380397896326,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "Explain Python programming",
+      "iterations": 2,
+      "latencies": [
+        6.019366979598999,
+        0.0007288455963134766
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 3.0100479125976562,
+      "min_latency": 0.0007288455963134766,
+      "max_latency": 6.019366979598999,
+      "std_latency": 4.255819838061248,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "What are vector databases?",
+      "iterations": 2,
+      "latencies": [
+        7.215954780578613,
+        0.001104116439819336
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 3.6085294485092163,
+      "min_latency": 0.001104116439819336,
+      "max_latency": 7.215954780578613,
+      "std_latency": 5.101669829860807,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "What is RAG?",
+      "iterations": 2,
+      "latencies": [
+        1.785417079925537,
+        0.0008282661437988281
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 0.893122673034668,
+      "min_latency": 0.0008282661437988281,
+      "max_latency": 1.785417079925537,
+      "std_latency": 1.261894851854724,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "How do I optimize database performance?",
+      "iterations": 2,
+      "latencies": [
+        6.3207011222839355,
+        0.0005488395690917969
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 3.1606249809265137,
+      "min_latency": 0.0005488395690917969,
+      "max_latency": 6.3207011222839355,
+      "std_latency": 4.4690225372393035,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "What are microservices?",
+      "iterations": 2,
+      "latencies": [
+        4.499216318130493,
+        0.0005300045013427734
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 2.249873161315918,
+      "min_latency": 0.0005300045013427734,
+      "max_latency": 4.499216318130493,
+      "std_latency": 3.181051598798284,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "Explain API design best practices",
+      "iterations": 2,
+      "latencies": [
+        10.813714027404785,
+        0.0007350444793701172
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 5.407224535942078,
+      "min_latency": 0.0007350444793701172,
+      "max_latency": 10.813714027404785,
+      "std_latency": 7.645930763654179,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "How does caching work?",
+      "iterations": 2,
+      "latencies": [
+        5.931626081466675,
+        0.0005819797515869141
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 2.966104030609131,
+      "min_latency": 0.0005819797515869141,
+      "max_latency": 5.931626081466675,
+      "std_latency": 4.193881503839214,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "What is containerization?",
+      "iterations": 2,
+      "latencies": [
+        4.874246835708618,
+        0.00061798095703125
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        false,
+        true
+      ],
+      "avg_latency": 2.4374324083328247,
+      "min_latency": 0.00061798095703125,
+      "max_latency": 4.874246835708618,
+      "std_latency": 3.4461760121812746,
+      "success_rate": 100.0,
+      "cache_hit_rate": 50.0
+    },
+    {
+      "query": "What is machine learning?",
+      "iterations": 2,
+      "latencies": [
+        0.0005240440368652344,
+        0.0005540847778320312
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0005390644073486328,
+      "min_latency": 0.0005240440368652344,
+      "max_latency": 0.0005540847778320312,
+      "std_latency": 2.124201164949059e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "How does Docker work?",
+      "iterations": 2,
+      "latencies": [
+        0.0004642009735107422,
+        0.00039505958557128906
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0004296302795410156,
+      "min_latency": 0.00039505958557128906,
+      "max_latency": 0.0004642009735107422,
+      "std_latency": 4.889034427263708e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "Explain Python programming",
+      "iterations": 2,
+      "latencies": [
+        0.0003819465637207031,
+        0.0003590583801269531
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0003705024719238281,
+      "min_latency": 0.0003590583801269531,
+      "max_latency": 0.0003819465637207031,
+      "std_latency": 1.6184389828183307e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "What are vector databases?",
+      "iterations": 2,
+      "latencies": [
+        0.00032591819763183594,
+        0.0003120899200439453
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0003190040588378906,
+      "min_latency": 0.0003120899200439453,
+      "max_latency": 0.00032591819763183594,
+      "std_latency": 9.778068854527415e-06,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "What is RAG?",
+      "iterations": 2,
+      "latencies": [
+        0.00032019615173339844,
+        0.0003540515899658203
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0003371238708496094,
+      "min_latency": 0.00032019615173339844,
+      "max_latency": 0.0003540515899658203,
+      "std_latency": 2.393940995418781e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "How do I optimize database performance?",
+      "iterations": 2,
+      "latencies": [
+        0.00036525726318359375,
+        0.0003161430358886719
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0003407001495361328,
+      "min_latency": 0.0003161430358886719,
+      "max_latency": 0.00036525726318359375,
+      "std_latency": 3.4729003172976685e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "What are microservices?",
+      "iterations": 2,
+      "latencies": [
+        0.00031828880310058594,
+        0.00027489662170410156
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.00029659271240234375,
+      "min_latency": 0.00027489662170410156,
+      "max_latency": 0.00031828880310058594,
+      "std_latency": 3.068290571593085e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "Explain API design best practices",
+      "iterations": 2,
+      "latencies": [
+        0.00026798248291015625,
+        0.00028514862060546875
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0002765655517578125,
+      "min_latency": 0.00026798248291015625,
+      "max_latency": 0.00028514862060546875,
+      "std_latency": 1.2138292371137481e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "How does caching work?",
+      "iterations": 2,
+      "latencies": [
+        0.00026988983154296875,
+        0.0002830028533935547
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0002764463424682617,
+      "min_latency": 0.00026988983154296875,
+      "max_latency": 0.0002830028533935547,
+      "std_latency": 9.272306672396687e-06,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    },
+    {
+      "query": "What is containerization?",
+      "iterations": 2,
+      "latencies": [
+        0.00037217140197753906,
+        0.0004086494445800781
+      ],
+      "successes": [
+        true,
+        true
+      ],
+      "cache_hits": [
+        true,
+        true
+      ],
+      "avg_latency": 0.0003904104232788086,
+      "min_latency": 0.00037217140197753906,
+      "max_latency": 0.0004086494445800781,
+      "std_latency": 2.579387128866715e-05,
+      "success_rate": 100.0,
+      "cache_hit_rate": 100.0
+    }
+  ],
+  "aggregate_metrics": {
+    "total_queries": 20,
+    "total_time_s": 54.58788204193115,
+    "queries_per_second": 0.3663816812793212,
+    "avg_response_time_s": 1.364608359336853,
+    "min_response_time_s": 0.0002764463424682617,
+    "max_response_time_s": 5.407224535942078,
+    "std_response_time_s": 1.6849301115443922,
+    "avg_success_rate_percent": 100.0,
+    "avg_cache_hit_rate_percent": 75.0,
+    "p95_response_time_s": 5.407224535942078,
+    "p99_response_time_s": 5.407224535942078
+  },
+  "performance_vs_targets": {
+    "response_time_target_met": false,
+    "max_response_time_target_met": false,
+    "success_rate_target_met": true,
+    "cache_hit_rate_target_met": true
+  },
+  "targets": {
+    "avg_response_time_s": 0.02,
+    "max_response_time_s": 0.1,
+    "success_rate_percent": 99.0,
+    "cache_hit_rate_percent": 50.0
+  }
+}

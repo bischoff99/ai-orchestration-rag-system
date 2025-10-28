@@ -1,0 +1,17 @@
+[
+  {
+    "instruction": "Write a Python function to calculate fibonacci numbers",
+    "input": "n = 10",
+    "output": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(10))  # Output: 55"
+  },
+  {
+    "instruction": "Create a JavaScript function to reverse a string",
+    "input": "str = 'hello world'",
+    "output": "function reverseString(str) {\n    return str.split('').reverse().join('');\n}\n\nconsole.log(reverseString('hello world'));  // Output: dlrow olleh"
+  },
+  {
+    "instruction": "Write a SQL query to find duplicate records",
+    "input": "table with id, name, email columns",
+    "output": "SELECT name, email, COUNT(*) as count\nFROM users\nGROUP BY name, email\nHAVING COUNT(*) > 1;"
+  }
+]

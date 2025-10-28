@@ -1,0 +1,322 @@
+[
+  {
+    "instruction": "What is popular python libraries: and why is it important in ML?",
+    "input": "",
+    "output": "- Scikit-learn: General purpose ML - TensorFlow: Deep learning framework - PyTorch: Deep learning with dynamic graphs - Pandas: Data manipulation - NumPy: Numerical computing",
+    "source": "sample_docs",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Explain the concept of popular python libraries: in machine learning",
+    "input": "",
+    "output": "- Scikit-learn: General purpose ML - TensorFlow: Deep learning framework - PyTorch: Deep learning with dynamic graphs - Pandas: Data manipulation - NumPy: Numerical computing - Matplotlib/Seaborn: Data visualization",
+    "source": "sample_docs",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "Describe how best practices: works in machine learning",
+    "input": "",
+    "output": "- Always split data into train/validation/test sets - Use cross-validation for model selection - Handle missing values and outliers - Scale features when necessary - Regularize to prevent overfitting",
+    "source": "sample_docs",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a reinforcement learning algorithm that learns optimal actions through reward maximization. The algorithm updates Q-values based on rewards received. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a reinforcement learning algorithm that finds minimum of a function by following gradients. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a regression algorithm that learns optimal actions through reward maximization. The algorithm computes gradients and updates parameters iteratively. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "linear regression is a clustering algorithm that groups data points into k clusters based on similarity. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a clustering algorithm that learns optimal actions through reward maximization. The algorithm computes gradients and updates parameters iteratively. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "linear regression is a regression algorithm that finds minimum of a function by following gradients. The algorithm updates Q-values based on rewards received. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "linear regression is a clustering algorithm that predicts continuous values using a linear relationship. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a reinforcement learning algorithm that learns optimal actions through reward maximization. The algorithm updates Q-values based on rewards received. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a clustering algorithm that learns optimal actions through reward maximization. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a regression algorithm that predicts continuous values using a linear relationship. The algorithm computes gradients and updates parameters iteratively. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a reinforcement learning algorithm that finds minimum of a function by following gradients. The algorithm updates Q-values based on rewards received. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a regression algorithm that groups data points into k clusters based on similarity. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a regression algorithm that groups data points into k clusters based on similarity. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a reinforcement learning algorithm that predicts continuous values using a linear relationship. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "linear regression is a reinforcement learning algorithm that learns optimal actions through reward maximization. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a regression algorithm that groups data points into k clusters based on similarity. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a regression algorithm that learns optimal actions through reward maximization. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a clustering algorithm that learns optimal actions through reward maximization. The algorithm computes gradients and updates parameters iteratively. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "linear regression is a reinforcement learning algorithm that predicts continuous values using a linear relationship. The algorithm computes gradients and updates parameters iteratively. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a optimization algorithm that groups data points into k clusters based on similarity. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "linear regression is a regression algorithm that finds minimum of a function by following gradients. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a optimization algorithm that finds minimum of a function by following gradients. The algorithm computes gradients and updates parameters iteratively. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a clustering algorithm that groups data points into k clusters based on similarity. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a regression algorithm that predicts continuous values using a linear relationship. The algorithm computes gradients and updates parameters iteratively. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a regression algorithm that groups data points into k clusters based on similarity. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a optimization algorithm that predicts continuous values using a linear relationship. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a reinforcement learning algorithm that finds minimum of a function by following gradients. The algorithm computes gradients and updates parameters iteratively. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a optimization algorithm that groups data points into k clusters based on similarity. The algorithm updates Q-values based on rewards received. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a regression algorithm that learns optimal actions through reward maximization. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a optimization algorithm that predicts continuous values using a linear relationship. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a regression algorithm that predicts continuous values using a linear relationship. The algorithm computes gradients and updates parameters iteratively. It's commonly used for game AI, robotic control.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a clustering algorithm that learns optimal actions through reward maximization. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a reinforcement learning algorithm that predicts continuous values using a linear relationship. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for house price prediction, sales forecasting.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does linear regression work in machine learning?",
+    "input": "",
+    "output": "k-means clustering is a optimization algorithm that predicts continuous values using a linear relationship. The algorithm updates Q-values based on rewards received. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does k-means clustering work in machine learning?",
+    "input": "",
+    "output": "Q-learning is a regression algorithm that predicts continuous values using a linear relationship. The algorithm fits a line to minimize the sum of squared errors. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a reinforcement learning algorithm that finds minimum of a function by following gradients. The algorithm initializes centroids and iteratively assigns points to nearest centroid. It's commonly used for customer segmentation, image compression.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  },
+  {
+    "instruction": "How does gradient descent work in machine learning?",
+    "input": "",
+    "output": "gradient descent is a optimization algorithm that predicts continuous values using a linear relationship. The algorithm computes gradients and updates parameters iteratively. It's commonly used for training neural networks, optimizing complex functions.",
+    "source": "synthetic",
+    "domain": "machine_learning",
+    "quality_score": 0.9
+  }
+]

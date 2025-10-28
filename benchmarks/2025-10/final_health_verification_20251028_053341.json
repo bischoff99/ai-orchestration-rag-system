@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-10-28T05:33:41.533289",
+  "migration_status": "Complete",
+  "overall_health": true,
+  "components": {
+    "n8n": {
+      "status": "healthy",
+      "port": "5678"
+    },
+    "chromadb": {
+      "status": "healthy",
+      "port": "8000"
+    },
+    "ollama": {
+      "status": "healthy",
+      "port": "11434"
+    }
+  },
+  "chromadb_v2": {
+    "heartbeat": {
+      "status": "healthy",
+      "response": {
+        "nanosecond heartbeat": 1761629618485790000
+      }
+    },
+    "version": {
+      "status": "healthy",
+      "version": "\"1.0.0\""
+    },
+    "collections": {
+      "status": "empty",
+      "note": "No collections created yet"
+    }
+  },
+  "rag_system": {
+    "queries": [
+      {
+        "query": "What is machine learning?",
+        "success": true,
+        "latency": 0.004166126251220703,
+        "status": "workflow_started"
+      },
+      {
+        "query": "How does Docker work?",
+        "success": true,
+        "latency": 0.012979269027709961,
+        "status": "workflow_started"
+      },
+      {
+        "query": "Explain Python programming",
+        "success": true,
+        "latency": 0.015428781509399414,
+        "status": "workflow_started"
+      }
+    ],
+    "summary": {
+      "successful": 3,
+      "total": 3,
+      "success_rate": 100.0,
+      "avg_latency": 0.01085805892944336
+    }
+  }
+}

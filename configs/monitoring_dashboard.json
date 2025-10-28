@@ -1,0 +1,50 @@
+{
+  "system_metrics": {
+    "n8n_workflows": {
+      "total": 9,
+      "active": 6,
+      "executions_today": 0,
+      "success_rate": 0.0
+    },
+    "ollama_models": {
+      "total": 14,
+      "active": 14,
+      "requests_today": 0,
+      "average_response_time": 0.0
+    },
+    "chromadb_collections": {
+      "total": 0,
+      "documents": 0,
+      "queries_today": 0,
+      "average_query_time": 0.0
+    }
+  },
+  "agent_metrics": {
+    "code_specialist": {
+      "requests": 0,
+      "success_rate": 0.0,
+      "average_confidence": 0.0
+    },
+    "technical_specialist": {
+      "requests": 0,
+      "success_rate": 0.0,
+      "average_confidence": 0.0
+    },
+    "workflow_orchestrator": {
+      "requests": 0,
+      "success_rate": 0.0,
+      "average_confidence": 0.0
+    }
+  },
+  "performance_alerts": {
+    "high_error_rate": false,
+    "slow_response_time": false,
+    "low_availability": false,
+    "resource_exhaustion": false
+  },
+  "dashboard_urls": {
+    "n8n_ui": "http://localhost:5678",
+    "ollama_api": "http://localhost:11434",
+    "chromadb_api": "http://localhost:8000"
+  }
+}

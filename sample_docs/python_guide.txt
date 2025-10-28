@@ -1,0 +1,26 @@
+Python Programming Guide
+
+Python is a high-level, interpreted programming language known for its simplicity and readability.
+
+Key Features:
+- Simple and easy to learn syntax
+- Cross-platform compatibility
+- Extensive standard library
+- Large ecosystem of third-party packages
+
+Best Practices:
+- Follow PEP 8 style guide
+- Use meaningful variable names
+- Write docstrings for functions and classes
+- Use virtual environments for project isolation
+- Handle exceptions properly with try-except blocks
+
+Example Code:
+def fibonacci(n):
+    """Calculate the nth Fibonacci number."""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# List comprehension example
+squares = [x**2 for x in range(10)]

@@ -1,0 +1,42 @@
+{
+  "vector_databases": {
+    "chroma": {
+      "path": "/Users/andrejsp/ai/vector_db/chroma",
+      "collection_name": "documents",
+      "distance_metric": "cosine"
+    },
+    "faiss": {
+      "path": "/Users/andrejsp/ai/vector_db/faiss",
+      "index_type": "IndexFlatIP",
+      "normalize": true
+    }
+  },
+  "embedding_model": {
+    "name": "all-MiniLM-L6-v2",
+    "dimension": 384,
+    "max_sequence_length": 256
+  },
+  "ollama": {
+    "url": "http://localhost:11434/api/generate",
+    "default_model": "llama-assistant",
+    "timeout": 30,
+    "temperature": 0.1,
+    "top_p": 0.9
+  },
+  "rag_settings": {
+    "max_context_length": 2000,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "max_results": 5,
+    "similarity_threshold": 0.7
+  },
+  "document_types": {
+    "supported_formats": [".txt", ".md", ".pdf", ".docx"],
+    "text_splitter": "RecursiveCharacterTextSplitter",
+    "preprocessing": {
+      "remove_extra_whitespace": true,
+      "normalize_unicode": true,
+      "remove_special_chars": false
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "agent": {
+    "name": "RAG Orchestrator v2",
+    "purpose": "Coordinates ChromaDB v2 queries, Ollama model inference, and n8n workflow execution",
+    "role": "Central reasoning and control agent for the local multi-service AI stack",
+    "version": "2.0.0",
+    "mode": "Production",
+    "api_version": "v2"
+  },
+  "configuration": {
+    "health_check_interval_s": 60,
+    "retry_policy": {
+      "max_attempts": 3,
+      "backoff_seconds": 5
+    },
+    "logging": {
+      "level": "INFO",
+      "output": "~/ai/logs/agent_rag_orchestrator.log"
+    }
+  },
+  "endpoints": {
+    "chromadb": "http://localhost:8000/api/v2",
+    "ollama": "http://localhost:11434",
+    "n8n": "http://localhost:5678"
+  },
+  "capabilities": [
+    "RAG retrieval and contextual augmentation",
+    "Model orchestration and query routing",
+    "Real-time health monitoring for all services",
+    "Workflow automation through n8n triggers"
+  ],
+  "security": {
+    "authentication": "Localhost-only (no external exposure)",
+    "data_encryption": "At-rest (SQLite) and in-memory (process isolation)"
+  },
+  "performance_targets": {
+    "avg_response_time_s": 0.02,
+    "throughput_tok_per_s": 130,
+    "uptime_target": "99.9%"
+  },
+  "owner": "Local AI Architect",
+  "version_control": {
+    "git_branch": "main",
+    "commit_tag": "chromadb-v2-final"
+  },
+  "services": {
+    "chromadb": {
+      "name": "ChromaDB v2",
+      "url": "http://localhost:8000/api/v2",
+      "health_endpoint": "/heartbeat",
+      "timeout": 10,
+      "retry_attempts": 3,
+      "backoff_seconds": 5
+    },
+    "ollama": {
+      "name": "Ollama",
+      "url": "http://localhost:11434",
+      "health_endpoint": "/api/tags",
+      "timeout": 10,
+      "retry_attempts": 3,
+      "backoff_seconds": 5
+    },
+    "n8n": {
+      "name": "n8n",
+      "url": "http://localhost:5678",
+      "health_endpoint": "/healthz",
+      "timeout": 10,
+      "retry_attempts": 3,
+      "backoff_seconds": 5
+    }
+  }
+}

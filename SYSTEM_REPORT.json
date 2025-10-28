@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-10-28T03:44:01.419051",
+  "system_status": "partial",
+  "test_results": {
+    "system_health": true,
+    "webhooks": false,
+    "chromadb": false,
+    "ollama": true,
+    "rag_pipeline": false,
+    "agent_workflows": false
+  },
+  "components": {
+    "n8n": "operational",
+    "ollama": "operational",
+    "chromadb": "operational"
+  },
+  "workflows": {
+    "total": 6,
+    "active": 3,
+    "webhooks_working": false
+  },
+  "agents": {
+    "code_specialist": "ready",
+    "technical_specialist": "ready",
+    "workflow_orchestrator": "ready"
+  },
+  "recommendations": [
+    "Manually activate workflows in n8n UI",
+    "Restart ChromaDB service",
+    "Check RAG pipeline configuration"
+  ]
+}

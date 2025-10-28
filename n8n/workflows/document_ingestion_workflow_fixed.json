@@ -1,0 +1,180 @@
+{
+  "name": "RAG Document Ingestion Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start-trigger",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "path": "={{ $json.directory_path || '/Users/andrejsp/ai/sample_docs' }}",
+        "options": {
+          "recursive": true
+        }
+      },
+      "id": "file-system-scan",
+      "name": "Scan Directory",
+      "type": "n8n-nodes-base.readFile",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter files for document processing\nconst items = $input.all();\nconst filteredItems = [];\n\n// Binary file extensions to skip\nconst binaryExtensions = [\n  '.exe', '.dll', '.so', '.dylib', '.bin', '.app', '.deb', '.rpm', '.msi',\n  '.zip', '.tar', '.gz', '.rar', '.7z', '.iso', '.img', '.dmg',\n  '.mp3', '.mp4', '.avi', '.mov', '.wav', '.flac', '.jpg', '.jpeg',\n  '.png', '.gif', '.bmp', '.tiff', '.ico', '.svg', '.psd', '.ai',\n  '.db', '.sqlite', '.sqlite3', '.mdb', '.accdb'\n];\n\n// System files to skip\nconst systemFiles = [\n  '.DS_Store', '.Thumbs.db', '.desktop.ini', '.localized',\n  '.zshenv', '.zshrc', '.bashrc', '.profile', '.bash_profile',\n  'CodeResources', 'PkgInfo', 'Info.plist'\n];\n\nfor (const item of items) {\n  const filePath = item.json.filePath || item.json.path;\n  const fileName = filePath.split('/').pop();\n  const fileExt = filePath.split('.').pop().toLowerCase();\n  \n  // Skip if system file\n  if (systemFiles.includes(fileName)) {\n    continue;\n  }\n  \n  // Skip if binary extension\n  if (binaryExtensions.includes('.' + fileExt)) {\n    continue;\n  }\n  \n  // Skip if app bundle\n  if (filePath.includes('.app/')) {\n    continue;\n  }\n  \n  // Skip if hidden file (except .md)\n  if (fileName.startsWith('.') && !fileName.endsWith('.md')) {\n    continue;\n  }\n  \n  // Only process supported document types\n  const supportedTypes = ['.txt', '.md', '.pdf', '.docx'];\n  if (supportedTypes.includes('.' + fileExt) || !fileExt) {\n    filteredItems.push({\n      json: {\n        filePath: filePath,\n        fileName: fileName,\n        fileType: fileExt,\n        collection: $json.collection_name || 'default_docs'\n      }\n    });\n  }\n}\n\nreturn filteredItems;"
+      },
+      "id": "filter-files",
+      "name": "Filter Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/ingest",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"chunks\": {{ $json.chunks }},\n  \"collection\": \"{{ $json.collection || 'default_docs' }}\"\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "chromadb-ingest",
+      "name": "Ingest to ChromaDB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "success-condition",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-success",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "message": "✅ Document ingestion completed successfully!\n\n📊 Statistics:\n- Files processed: {{ $json.stats.processedFiles }}\n- Total chunks: {{ $json.stats.totalChunks }}\n- Collection: {{ $json.collection || 'default_docs' }}",
+        "additionalFields": {
+          "title": "RAG Ingestion Success"
+        }
+      },
+      "id": "success-notification",
+      "name": "Success Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "message": "❌ Document ingestion failed!\n\nError: {{ $json.error || 'Unknown error' }}\nCollection: {{ $json.collection || 'default_docs' }}",
+        "additionalFields": {
+          "title": "RAG Ingestion Error"
+        }
+      },
+      "id": "error-notification",
+      "name": "Error Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [1340, 400]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Scan Directory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scan Directory": {
+      "main": [
+        [
+          {
+            "node": "Filter Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Files": {
+      "main": [
+        [
+          {
+            "node": "Ingest to ChromaDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ingest to ChromaDB": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Success Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-15T10:30:00.000Z",
+  "versionId": "1"
+}

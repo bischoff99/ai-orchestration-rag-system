@@ -1,0 +1,25 @@
+Docker Containerization Guide
+
+Docker allows you to package applications and their dependencies into containers.
+
+Key Concepts:
+1. Dockerfile: Instructions to build a Docker image
+2. Docker Image: A read-only template for creating containers
+3. Docker Container: A running instance of an image
+4. Docker Compose: Tool for multi-container applications
+
+Basic Dockerfile:
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["python", "app.py"]
+
+Common Commands:
+- docker build -t myapp .
+- docker run -p 8000:8000 myapp
+- docker-compose up
+- docker ps
+- docker logs <container_id>

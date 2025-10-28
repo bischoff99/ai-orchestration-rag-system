@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-10-28T05:31:50.784605",
+  "components": {
+    "n8n": {
+      "status": "healthy",
+      "port": 5678
+    },
+    "chromadb_v2": {
+      "status": "healthy",
+      "port": 8000,
+      "api": "v2"
+    },
+    "ollama": {
+      "status": "healthy",
+      "port": 11434,
+      "models": 14
+    },
+    "rag_webhook": {
+      "status": "healthy",
+      "response": "workflow_started"
+    }
+  },
+  "overall_status": "healthy"
+}

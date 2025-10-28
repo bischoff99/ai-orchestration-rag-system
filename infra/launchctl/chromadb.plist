@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.chromadb</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/chroma</string>
+        <string>run</string>
+        <string>--port</string>
+        <string>8000</string>
+        <string>--host</string>
+        <string>localhost</string>
+        <string>--persist-directory</string>
+        <string>/Users/andrejsp/ai/vector_db/chroma</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/andrejsp/ai</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>CHROMA_SERVER_HOST</key>
+        <string>localhost</string>
+        <key>CHROMA_SERVER_HTTP_PORT</key>
+        <string>8000</string>
+        <key>CHROMA_SERVER_CORS_ALLOW_ORIGINS</key>
+        <string>http://localhost:5678,http://localhost:3000</string>
+        <key>CHROMA_PERSIST_DIRECTORY</key>
+        <string>/Users/andrejsp/ai/vector_db/chroma</string>
+        <key>CHROMA_LOG_LEVEL</key>
+        <string>INFO</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/andrejsp/ai/logs/chromadb.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/andrejsp/ai/logs/chromadb.err</string>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    <key>ExitTimeOut</key>
+    <integer>30</integer>
+</dict>
+</plist>

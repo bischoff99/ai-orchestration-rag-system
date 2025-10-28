@@ -1,0 +1,124 @@
+{
+  "name": "AI Orchestration & RAG Development",
+
+  // Use existing Dockerfile
+  "dockerfile": "../Dockerfile",
+
+  // Features for AI/ML development
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11",
+      "installTools": true
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": true,
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Mount the workspace
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
+
+  // Install extensions
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Python essentials
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+
+        // Testing
+        "ms-python.pytest",
+
+        // Docker
+        "ms-azuretools.vscode-docker",
+
+        // Data Science / AI
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+
+        // FastAPI
+        "rangav.vscode-thunder-client",
+
+        // Development tools
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+
+        // Git and collaboration
+        "ms-vscode.vscode-git-graph",
+        "github.copilot",
+
+        // Additional utilities
+        "ms-python.isort",
+        "tamasfe.even-better-toml",
+        "ms-vscode.vscode-markdownlint"
+      ],
+
+      // Apply workspace settings
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  },
+
+  // Post-create commands
+  "postCreateCommand": "pip install -r requirements.txt",
+
+  // Ports to forward
+  "portsAttributes": {
+    "8000": {
+      "label": "ChromaDB",
+      "onAutoForward": "notify"
+    },
+    "8001": {
+      "label": "FastAPI RAG API",
+      "onAutoForward": "notify"
+    },
+    "5678": {
+      "label": "N8N",
+      "onAutoForward": "notify"
+    },
+    "11434": {
+      "label": "Ollama",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // Environment variables
+  "containerEnv": {
+    "OLLAMA_HOST": "http://localhost:11434",
+    "N8N_HOST": "http://localhost:5678",
+    "PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}:/workspaces/${localWorkspaceFolderBasename}/vector_db:/workspaces/${localWorkspaceFolderBasename}/rag_sources"
+  },
+
+  // Mount volumes for persistent data
+  "mounts": [
+    {
+      "source": "chroma-data",
+      "target": "/workspaces/${localWorkspaceFolderBasename}/chroma",
+      "type": "volume"
+    },
+    {
+      "source": "vector-db-data",
+      "target": "/workspaces/${localWorkspaceFolderBasename}/vector_db",
+      "type": "volume"
+    }
+  ],
+
+  // Remote user
+  "remoteUser": "vscode",
+
+  // Security options
+  "securityOpt": ["label=disable"]
+}

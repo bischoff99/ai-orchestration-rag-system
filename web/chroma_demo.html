@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChromaDB RAG System Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .collection { border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px; }
+        .query { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .result { margin: 5px 0; padding: 5px; background: white; border-left: 3px solid #007bff; }
+        .score { color: #666; font-size: 0.9em; }
+        .metadata { color: #888; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <h1>🚀 ChromaDB RAG System Demo</h1>
+    
+    <h2>📊 Collections (1013 total documents)</h2>
+    
+    <div class="collection">
+        <h3>documents (7 documents)</h3>
+        <p><strong>Metadata:</strong> {
+  "hnsw:space": "cosine"
+}</p>
+        <h4>Sample Documents:</h4>
+        <div class="result"><p>Python is a high-level programming language known for its simplicity and readability. It's widely used in web development, data science, machine learning, and AI applications.</p><div class="metadata">{
+  "language": "python",
+  "category": "programming",
+  "title": "Python Programming"
+}</div></div><div class="result"><p>Machine learning is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed. It includes supervised learning, unsupervised ...</p><div class="metadata">{
+  "category": "ai",
+  "title": "Machine Learning",
+  "language": "python"
+}</div></div><div class="result"><p>Docker is a containerization platform that allows you to package applications and their dependencies into lightweight, portable containers. It ensures consistency across different environments.</p><div class="metadata">{
+  "title": "Docker",
+  "language": "docker",
+  "category": "devops"
+}</div></div>
+    </div>
+    
+    <div class="collection">
+        <h3>ollama_docs (3 documents)</h3>
+        <p><strong>Metadata:</strong> {
+  "hnsw:space": "cosine"
+}</p>
+        <h4>Sample Documents:</h4>
+        <div class="result"><p>Python is a high-level programming language known for its simplicity and readability. Best practices include following PEP 8 style guide, using meaningful variable names, writing docstrings, and using...</p><div class="metadata">{
+  "title": "Python Best Practices",
+  "category": "programming"
+}</div></div><div class="result"><p>Machine learning is a subset of artificial intelligence that enables computers to learn from data. Common types include supervised learning, unsupervised learning, and reinforcement learning.</p><div class="metadata">{
+  "category": "ai",
+  "title": "Machine Learning Guide"
+}</div></div><div class="result"><p>Docker is a containerization platform that packages applications and dependencies into containers. It ensures consistency across different environments and simplifies deployment.</p><div class="metadata">{
+  "category": "devops",
+  "title": "Docker Basics"
+}</div></div>
+    </div>
+    
+    <div class="collection">
+        <h3>optimal_hf_datasets (1000 documents)</h3>
+        <p><strong>Metadata:</strong> {
+  "hnsw:space": "cosine"
+}</p>
+        <h4>Sample Documents:</h4>
+        <div class="result"><p>Instruction: Give three tips for staying healthy.
+Output: 1.Eat a balanced diet and make sure to include plenty of fruits and vegetables. 
+2. Exercise regularly to keep your body active and strong. 
+3...</p><div class="metadata">{
+  "index": 0,
+  "type": "instruction",
+  "source": "huggingface",
+  "dataset": "alpaca"
+}</div></div><div class="result"><p>Instruction: What are the three primary colors?
+Output: The three primary colors are red, blue, and yellow.</p><div class="metadata">{
+  "source": "huggingface",
+  "dataset": "alpaca",
+  "index": 1,
+  "type": "instruction"
+}</div></div><div class="result"><p>Instruction: Describe the structure of an atom.
+Output: An atom is made up of a nucleus, which contains protons and neutrons, surrounded by electrons that travel in orbits around the nucleus. The prot...</p><div class="metadata">{
+  "index": 2,
+  "source": "huggingface",
+  "dataset": "alpaca",
+  "type": "instruction"
+}</div></div>
+    </div>
+    
+    <div class="collection">
+        <h3>unified_docs (3 documents)</h3>
+        <p><strong>Metadata:</strong> {
+  "hnsw:space": "cosine"
+}</p>
+        <h4>Sample Documents:</h4>
+        <div class="result"><p>Python is a programming language known for its simplicity and readability.</p><div class="metadata">{
+  "category": "programming",
+  "title": "Python"
+}</div></div><div class="result"><p>Machine learning enables computers to learn from data without explicit programming.</p><div class="metadata">{
+  "title": "Machine Learning",
+  "category": "ai"
+}</div></div><div class="result"><p>Docker containers package applications with their dependencies for easy deployment.</p><div class="metadata">{
+  "title": "Docker",
+  "category": "devops"
+}</div></div>
+    </div>
+    
+    
+    <h2>🧪 Demo Queries</h2>
+    
+    <div class="query">
+        <h3>❓ What is machine learning?</h3>
+        <div class="result"><p>Instruction: Write a definition for the term "machine learning".
+Output: Machine learning is an application of artificial intelligence that gives syst...</p><div class="score">Score: 0.161</div><div class="metadata">{
+  "type": "instruction",
+  "source": "huggingface",
+  "index": 867,
+  "dataset": "alpaca"
+}</div></div><div class="result"><p>Instruction: Describe how machine learning can be used to automate mundane tasks.
+Output: Machine learning can be used to automate mundane tasks such ...</p><div class="score">Score: 0.27</div><div class="metadata">{
+  "dataset": "alpaca",
+  "index": 473,
+  "source": "huggingface",
+  "type": "instruction"
+}</div></div><div class="result"><p>Instruction: Compare the following two subjects
+Output: Artificial Intelligence (AI) and Machine Learning (ML) are both fields of computer science whi...</p><div class="score">Score: 0.36</div><div class="metadata">{
+  "index": 952,
+  "source": "huggingface",
+  "type": "instruction",
+  "dataset": "alpaca"
+}</div></div>
+    </div>
+    
+    <div class="query">
+        <h3>❓ How do I write a Python function?</h3>
+        <div class="result"><p>Instruction: Generate a function for calculating the mean of a list.
+Output: def mean(lst): 
+    return sum(lst) / len(lst)</p><div class="score">Score: 0.481</div><div class="metadata">{
+  "source": "huggingface",
+  "dataset": "alpaca",
+  "type": "instruction",
+  "index": 342
+}</div></div><div class="result"><p>Instruction: Write a function to calculate the factorial of a given number.
+Output: def factorial(n):
+    if n == 0:
+        return 1
+    return n * f...</p><div class="score">Score: 0.484</div><div class="metadata">{
+  "source": "huggingface",
+  "type": "instruction",
+  "index": 146,
+  "dataset": "alpaca"
+}</div></div><div class="result"><p>Instruction: Write a Python function that takes two integers and returns their least common multiple.
+Output: def lcm(a, b):
+  if a > b:
+    greater =...</p><div class="score">Score: 0.522</div><div class="metadata">{
+  "type": "instruction",
+  "index": 486,
+  "dataset": "alpaca",
+  "source": "huggingface"
+}</div></div>
+    </div>
+    
+    <div class="query">
+        <h3>❓ Give me a creative writing prompt</h3>
+        <div class="result"><p>Instruction: Generate a poem that expresses joy.
+Output: Joy flows through me like a river clear,
+Bringing laughter and bliss to my soul to hear.
+
+The...</p><div class="score">Score: 0.517</div><div class="metadata">{
+  "dataset": "alpaca",
+  "type": "instruction",
+  "source": "huggingface",
+  "index": 40
+}</div></div><div class="result"><p>Instruction: Create a haiku poetry with the given theme.
+Output: Stars glitter in the dark
+Mysteries in the night
+All is wondrous in sight.</p><div class="score">Score: 0.531</div><div class="metadata">{
+  "type": "instruction",
+  "index": 305,
+  "dataset": "alpaca",
+  "source": "huggingface"
+}</div></div><div class="result"><p>Instruction: Brainstorm some ideas for a fictional novel.
+Output: Ideas for a fictional novel include: a high school student discovers they have speci...</p><div class="score">Score: 0.532</div><div class="metadata">{
+  "type": "instruction",
+  "dataset": "alpaca",
+  "source": "huggingface",
+  "index": 601
+}</div></div>
+    </div>
+    
+    <div class="query">
+        <h3>❓ Solve: What is 15% of 200?</h3>
+        <div class="result"><p>Instruction: Calculate the area of the triangle.
+Output: The area of the triangle is 15 cm².</p><div class="score">Score: 0.483</div><div class="metadata">{
+  "type": "instruction",
+  "source": "huggingface",
+  "index": 126,
+  "dataset": "alpaca"
+}</div></div><div class="result"><p>Instruction: Write a math equation to find the geometric mean between two numbers
+Output: The geometric mean of 10 and 15 is \(\sqrt{10\times 15}=12.2...</p><div class="score">Score: 0.555</div><div class="metadata">{
+  "dataset": "alpaca",
+  "type": "instruction",
+  "source": "huggingface",
+  "index": 630
+}</div></div><div class="result"><p>Instruction: Provide the answer to the equation.
+Output: 13</p><div class="score">Score: 0.562</div><div class="metadata">{
+  "type": "instruction",
+  "source": "huggingface",
+  "index": 491,
+  "dataset": "alpaca"
+}</div></div>
+    </div>
+    
+    <div class="query">
+        <h3>❓ Explain recursion in programming</h3>
+        <div class="result"><p>Instruction: Rewrite the following sentence for clarity.
+Output: How does this program differentiate itself from the other programs?</p><div class="score">Score: 0.522</div><div class="metadata">{
+  "index": 368,
+  "dataset": "alpaca",
+  "source": "huggingface",
+  "type": "instruction"
+}</div></div><div class="result"><p>Instruction: Reverse engineer the following code snippet and explain what is happening in 4 sentences.
+
+var x = 3
+var y = x + 4
+Output: This code snip...</p><div class="score">Score: 0.53</div><div class="metadata">{
+  "index": 883,
+  "dataset": "alpaca",
+  "source": "huggingface",
+  "type": "instruction"
+}</div></div><div class="result"><p>Instruction: Generate an algorithm for a sorting machine.
+Output: The algorithm for a sorting machine involves first taking input, followed by organiz...</p><div class="score">Score: 0.557</div><div class="metadata">{
+  "index": 783,
+  "dataset": "alpaca",
+  "type": "instruction",
+  "source": "huggingface"
+}</div></div>
+    </div>
+    
+    
+    <h2>💡 Usage</h2>
+    <p>This demo shows your ChromaDB collections and sample queries. The actual web interface would be available at:</p>
+    <ul>
+        <li><strong>ChromaDB Admin:</strong> http://localhost:8000 (when server is running)</li>
+        <li><strong>API Docs:</strong> http://localhost:8000/docs</li>
+        <li><strong>Collections API:</strong> http://localhost:8000/api/v1/collections</li>
+    </ul>
+    
+    <h2>🔧 Next Steps</h2>
+    <ol>
+        <li>Start ChromaDB server: <code>python /Users/andrejsp/ai/scripts/start_chroma_server.py</code></li>
+        <li>Open http://localhost:8000 in your browser</li>
+        <li>Browse collections and documents</li>
+        <li>Use the API for programmatic access</li>
+    </ol>
+</body>
+</html>

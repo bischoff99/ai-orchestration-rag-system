@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Python Programming",
+    "category": "programming",
+    "language": "python",
+    "text": "Python is a high-level programming language known for its simplicity and readability. It's widely used in web development, data science, machine learning, and AI applications."
+  },
+  {
+    "title": "Machine Learning",
+    "category": "ai",
+    "language": "python",
+    "text": "Machine learning is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed. It includes supervised learning, unsupervised learning, and reinforcement learning."
+  },
+  {
+    "title": "Docker",
+    "category": "devops",
+    "language": "docker",
+    "text": "Docker is a containerization platform that allows you to package applications and their dependencies into lightweight, portable containers. It ensures consistency across different environments."
+  },
+  {
+    "title": "Vector Databases",
+    "category": "database",
+    "language": "general",
+    "text": "Vector databases are specialized databases designed to store and query high-dimensional vectors efficiently. They're essential for RAG (Retrieval-Augmented Generation) systems and semantic search."
+  },
+  {
+    "title": "Ollama",
+    "category": "llm",
+    "language": "general",
+    "text": "Ollama is a tool that makes it easy to run large language models locally on your machine. It supports many open-source models and provides a simple API for integration."
+  }
+]

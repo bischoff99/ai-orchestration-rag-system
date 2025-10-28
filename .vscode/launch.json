@@ -1,0 +1,313 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // ==========================================
+    // PYTHON DEBUGGING CONFIGURATIONS
+    // ==========================================
+
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      }
+    },
+
+    {
+      "name": "Python: Current File (External Terminal)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "externalTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      }
+    },
+
+    // ==========================================
+    // FASTAPI APPLICATION DEBUGGING
+    // ==========================================
+
+    {
+      "name": "FastAPI: RAG API Server",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "simple_rag_api:app",
+        "--reload",
+        "--host", "0.0.0.0",
+        "--port", "8001"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "FastAPI: RAG Orchestrator v2",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/rag_orchestrator_v2.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    // ==========================================
+    // FAISS & VECTOR DATABASE DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Debug: FAISS Ingestion",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/faiss_ingestion_production.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: ChromaDB Operations",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/ingest_to_chromadb.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    // ==========================================
+    // TESTING DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Debug: All Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": [
+        "--verbose",
+        "--tb=short",
+        "--capture=no"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: FAISS Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_faiss.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: RAG Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_rag_simple.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: Webhook Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_webhooks_final.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    // ==========================================
+    // N8N WORKFLOW DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Debug: Activate Workflows",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/activate_workflows.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: Workflow Testing",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_n8n_workflows.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    // ==========================================
+    // DOCKER DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Docker: Attach to ChromaDB",
+      "type": "docker",
+      "request": "attach",
+      "platform": "python",
+      "containerName": "chromadb",
+      "remoteRoot": "/chroma",
+      "localRoot": "${workspaceFolder}",
+      "port": 5678
+    },
+
+    // ==========================================
+    // REMOTE ATTACH DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Remote Attach: Python",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "/app"
+        }
+      ]
+    },
+
+    // ==========================================
+    // JUPYTER NOTEBOOK DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Jupyter: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      }
+    },
+
+    // ==========================================
+    // DEMO AND EXAMPLES DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Debug: Local RAG Demo",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/local_rag_demo.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: Minimal FAISS Test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/minimal_faiss_test.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    // ==========================================
+    // SYSTEM TESTING DEBUGGING
+    // ==========================================
+
+    {
+      "name": "Debug: System Test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/test_system.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "Debug: Production Validation",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/validate_production_system.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/vector_db:${workspaceFolder}/rag_sources",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "N8N_HOST": "http://localhost:5678"
+      },
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

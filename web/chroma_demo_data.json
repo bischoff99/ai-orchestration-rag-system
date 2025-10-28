@@ -1,0 +1,318 @@
+{
+  "collections": [
+    {
+      "name": "documents",
+      "count": 7,
+      "metadata": {
+        "hnsw:space": "cosine"
+      },
+      "sample_documents": [
+        {
+          "text": "Python is a high-level programming language known for its simplicity and readability. It's widely used in web development, data science, machine learning, and AI applications.",
+          "metadata": {
+            "language": "python",
+            "category": "programming",
+            "title": "Python Programming"
+          }
+        },
+        {
+          "text": "Machine learning is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed. It includes supervised learning, unsupervised ...",
+          "metadata": {
+            "category": "ai",
+            "title": "Machine Learning",
+            "language": "python"
+          }
+        },
+        {
+          "text": "Docker is a containerization platform that allows you to package applications and their dependencies into lightweight, portable containers. It ensures consistency across different environments.",
+          "metadata": {
+            "title": "Docker",
+            "language": "docker",
+            "category": "devops"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ollama_docs",
+      "count": 3,
+      "metadata": {
+        "hnsw:space": "cosine"
+      },
+      "sample_documents": [
+        {
+          "text": "Python is a high-level programming language known for its simplicity and readability. Best practices include following PEP 8 style guide, using meaningful variable names, writing docstrings, and using...",
+          "metadata": {
+            "title": "Python Best Practices",
+            "category": "programming"
+          }
+        },
+        {
+          "text": "Machine learning is a subset of artificial intelligence that enables computers to learn from data. Common types include supervised learning, unsupervised learning, and reinforcement learning.",
+          "metadata": {
+            "category": "ai",
+            "title": "Machine Learning Guide"
+          }
+        },
+        {
+          "text": "Docker is a containerization platform that packages applications and dependencies into containers. It ensures consistency across different environments and simplifies deployment.",
+          "metadata": {
+            "category": "devops",
+            "title": "Docker Basics"
+          }
+        }
+      ]
+    },
+    {
+      "name": "optimal_hf_datasets",
+      "count": 1000,
+      "metadata": {
+        "hnsw:space": "cosine"
+      },
+      "sample_documents": [
+        {
+          "text": "Instruction: Give three tips for staying healthy.\nOutput: 1.Eat a balanced diet and make sure to include plenty of fruits and vegetables. \n2. Exercise regularly to keep your body active and strong. \n3...",
+          "metadata": {
+            "index": 0,
+            "type": "instruction",
+            "source": "huggingface",
+            "dataset": "alpaca"
+          }
+        },
+        {
+          "text": "Instruction: What are the three primary colors?\nOutput: The three primary colors are red, blue, and yellow.",
+          "metadata": {
+            "source": "huggingface",
+            "dataset": "alpaca",
+            "index": 1,
+            "type": "instruction"
+          }
+        },
+        {
+          "text": "Instruction: Describe the structure of an atom.\nOutput: An atom is made up of a nucleus, which contains protons and neutrons, surrounded by electrons that travel in orbits around the nucleus. The prot...",
+          "metadata": {
+            "index": 2,
+            "source": "huggingface",
+            "dataset": "alpaca",
+            "type": "instruction"
+          }
+        }
+      ]
+    },
+    {
+      "name": "unified_docs",
+      "count": 3,
+      "metadata": {
+        "hnsw:space": "cosine"
+      },
+      "sample_documents": [
+        {
+          "text": "Python is a programming language known for its simplicity and readability.",
+          "metadata": {
+            "category": "programming",
+            "title": "Python"
+          }
+        },
+        {
+          "text": "Machine learning enables computers to learn from data without explicit programming.",
+          "metadata": {
+            "title": "Machine Learning",
+            "category": "ai"
+          }
+        },
+        {
+          "text": "Docker containers package applications with their dependencies for easy deployment.",
+          "metadata": {
+            "title": "Docker",
+            "category": "devops"
+          }
+        }
+      ]
+    }
+  ],
+  "total_documents": 1013,
+  "demo_queries": [
+    "What is machine learning?",
+    "How do I write a Python function?",
+    "Give me a creative writing prompt",
+    "Solve: What is 15% of 200?",
+    "Explain recursion in programming"
+  ],
+  "query_results": [
+    {
+      "query": "What is machine learning?",
+      "results": [
+        {
+          "text": "Instruction: Write a definition for the term \"machine learning\".\nOutput: Machine learning is an application of artificial intelligence that gives syst...",
+          "score": 0.161,
+          "metadata": {
+            "type": "instruction",
+            "source": "huggingface",
+            "index": 867,
+            "dataset": "alpaca"
+          }
+        },
+        {
+          "text": "Instruction: Describe how machine learning can be used to automate mundane tasks.\nOutput: Machine learning can be used to automate mundane tasks such ...",
+          "score": 0.27,
+          "metadata": {
+            "dataset": "alpaca",
+            "index": 473,
+            "source": "huggingface",
+            "type": "instruction"
+          }
+        },
+        {
+          "text": "Instruction: Compare the following two subjects\nOutput: Artificial Intelligence (AI) and Machine Learning (ML) are both fields of computer science whi...",
+          "score": 0.36,
+          "metadata": {
+            "index": 952,
+            "source": "huggingface",
+            "type": "instruction",
+            "dataset": "alpaca"
+          }
+        }
+      ]
+    },
+    {
+      "query": "How do I write a Python function?",
+      "results": [
+        {
+          "text": "Instruction: Generate a function for calculating the mean of a list.\nOutput: def mean(lst): \n    return sum(lst) / len(lst)",
+          "score": 0.481,
+          "metadata": {
+            "source": "huggingface",
+            "dataset": "alpaca",
+            "type": "instruction",
+            "index": 342
+          }
+        },
+        {
+          "text": "Instruction: Write a function to calculate the factorial of a given number.\nOutput: def factorial(n):\n    if n == 0:\n        return 1\n    return n * f...",
+          "score": 0.484,
+          "metadata": {
+            "source": "huggingface",
+            "type": "instruction",
+            "index": 146,
+            "dataset": "alpaca"
+          }
+        },
+        {
+          "text": "Instruction: Write a Python function that takes two integers and returns their least common multiple.\nOutput: def lcm(a, b):\n  if a > b:\n    greater =...",
+          "score": 0.522,
+          "metadata": {
+            "type": "instruction",
+            "index": 486,
+            "dataset": "alpaca",
+            "source": "huggingface"
+          }
+        }
+      ]
+    },
+    {
+      "query": "Give me a creative writing prompt",
+      "results": [
+        {
+          "text": "Instruction: Generate a poem that expresses joy.\nOutput: Joy flows through me like a river clear,\nBringing laughter and bliss to my soul to hear.\n\nThe...",
+          "score": 0.517,
+          "metadata": {
+            "dataset": "alpaca",
+            "type": "instruction",
+            "source": "huggingface",
+            "index": 40
+          }
+        },
+        {
+          "text": "Instruction: Create a haiku poetry with the given theme.\nOutput: Stars glitter in the dark\nMysteries in the night\nAll is wondrous in sight.",
+          "score": 0.531,
+          "metadata": {
+            "type": "instruction",
+            "index": 305,
+            "dataset": "alpaca",
+            "source": "huggingface"
+          }
+        },
+        {
+          "text": "Instruction: Brainstorm some ideas for a fictional novel.\nOutput: Ideas for a fictional novel include: a high school student discovers they have speci...",
+          "score": 0.532,
+          "metadata": {
+            "type": "instruction",
+            "dataset": "alpaca",
+            "source": "huggingface",
+            "index": 601
+          }
+        }
+      ]
+    },
+    {
+      "query": "Solve: What is 15% of 200?",
+      "results": [
+        {
+          "text": "Instruction: Calculate the area of the triangle.\nOutput: The area of the triangle is 15 cm\u00b2.",
+          "score": 0.483,
+          "metadata": {
+            "type": "instruction",
+            "source": "huggingface",
+            "index": 126,
+            "dataset": "alpaca"
+          }
+        },
+        {
+          "text": "Instruction: Write a math equation to find the geometric mean between two numbers\nOutput: The geometric mean of 10 and 15 is \\(\\sqrt{10\\times 15}=12.2...",
+          "score": 0.555,
+          "metadata": {
+            "dataset": "alpaca",
+            "type": "instruction",
+            "source": "huggingface",
+            "index": 630
+          }
+        },
+        {
+          "text": "Instruction: Provide the answer to the equation.\nOutput: 13",
+          "score": 0.562,
+          "metadata": {
+            "type": "instruction",
+            "source": "huggingface",
+            "index": 491,
+            "dataset": "alpaca"
+          }
+        }
+      ]
+    },
+    {
+      "query": "Explain recursion in programming",
+      "results": [
+        {
+          "text": "Instruction: Rewrite the following sentence for clarity.\nOutput: How does this program differentiate itself from the other programs?",
+          "score": 0.522,
+          "metadata": {
+            "index": 368,
+            "dataset": "alpaca",
+            "source": "huggingface",
+            "type": "instruction"
+          }
+        },
+        {
+          "text": "Instruction: Reverse engineer the following code snippet and explain what is happening in 4 sentences.\n\nvar x = 3\nvar y = x + 4\nOutput: This code snip...",
+          "score": 0.53,
+          "metadata": {
+            "index": 883,
+            "dataset": "alpaca",
+            "source": "huggingface",
+            "type": "instruction"
+          }
+        },
+        {
+          "text": "Instruction: Generate an algorithm for a sorting machine.\nOutput: The algorithm for a sorting machine involves first taking input, followed by organiz...",
+          "score": 0.557,
+          "metadata": {
+            "index": 783,
+            "dataset": "alpaca",
+            "type": "instruction",
+            "source": "huggingface"
+          }
+        }
+      ]
+    }
+  ]
+}

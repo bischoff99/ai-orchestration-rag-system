@@ -1,0 +1,29 @@
+{
+  "circuit_breakers": {
+    "ollama_timeout": 30000,
+    "chromadb_timeout": 10000,
+    "max_retries": 3,
+    "retry_delay": 1000
+  },
+  "human_checkpoints": {
+    "low_confidence_threshold": 0.6,
+    "complex_task_threshold": 0.8,
+    "error_escalation": true,
+    "approval_required": ["workflow_modification", "data_deletion"]
+  },
+  "fallback_responses": {
+    "service_unavailable": "I'm currently experiencing technical difficulties. Please try again later.",
+    "low_confidence": "I'm not entirely confident in my response. Would you like me to consult additional resources?",
+    "complex_task": "This task requires human review. I've escalated it to our team."
+  },
+  "monitoring": {
+    "health_check_interval": 60,
+    "performance_metrics": true,
+    "error_tracking": true,
+    "alert_thresholds": {
+      "error_rate": 0.05,
+      "response_time": 5000,
+      "availability": 0.99
+    }
+  }
+}

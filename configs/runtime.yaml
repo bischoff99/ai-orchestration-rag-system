@@ -1,0 +1,13 @@
+defaults:
+  num_ctx: 16384
+  temperature: 0.4
+  repeat_penalty: 1.1
+  precision: int4
+  framework: ollama
+  seed: 42
+paths:
+  models: ~/ai/models
+  datasets: ~/ai/datasets
+  runs: ~/ai/runs
+
+

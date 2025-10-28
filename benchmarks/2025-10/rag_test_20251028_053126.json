@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-10-28T05:31:26.784961",
+  "summary": {
+    "successful": 4,
+    "total": 4,
+    "success_rate": 100.0,
+    "avg_latency": 0.009100079536437988
+  },
+  "results": [
+    {
+      "query": "What is machine learning?",
+      "success": true,
+      "latency": 0.008787870407104492,
+      "response": {
+        "message": "Workflow was started"
+      }
+    },
+    {
+      "query": "How does Docker work?",
+      "success": true,
+      "latency": 0.009434223175048828,
+      "response": {
+        "message": "Workflow was started"
+      }
+    },
+    {
+      "query": "Explain Python programming",
+      "success": true,
+      "latency": 0.007969141006469727,
+      "response": {
+        "message": "Workflow was started"
+      }
+    },
+    {
+      "query": "What are vector databases?",
+      "success": true,
+      "latency": 0.010209083557128906,
+      "response": {
+        "message": "Workflow was started"
+      }
+    }
+  ]
+}

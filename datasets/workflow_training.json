@@ -1,0 +1,17 @@
+[
+  {
+    "instruction": "Design a workflow for processing user uploads",
+    "input": "Files need validation, virus scanning, and storage",
+    "output": "1. Receive file upload\n2. Validate file type and size\n3. Scan for viruses\n4. Generate unique filename\n5. Store in secure location\n6. Update database\n7. Send confirmation to user"
+  },
+  {
+    "instruction": "Create a decision tree for handling customer support tickets",
+    "input": "Tickets can be technical, billing, or general inquiries",
+    "output": "1. Categorize ticket type\n2. If technical: Route to engineering team\n3. If billing: Route to finance team\n4. If general: Route to customer service\n5. Set priority based on severity\n6. Assign to appropriate agent"
+  },
+  {
+    "instruction": "Design a CI/CD pipeline for a web application",
+    "input": "Application uses Docker and needs automated testing",
+    "output": "1. Code commit triggers pipeline\n2. Run automated tests\n3. Build Docker image\n4. Security scan\n5. Deploy to staging\n6. Run integration tests\n7. Deploy to production\n8. Monitor deployment"
+  }
+]

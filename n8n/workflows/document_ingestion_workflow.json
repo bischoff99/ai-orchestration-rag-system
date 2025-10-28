@@ -1,0 +1,293 @@
+{
+  "name": "RAG Document Ingestion Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "document-ingestion",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Document Ingestion Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "document-ingestion-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Scan directory for files\nconst directoryPath = $json.directory_path || $json.body?.directory_path || '/Users/andrejsp/ai/sample_docs';\nconst collectionName = $json.collection_name || $json.body?.collection_name || 'default_docs';\n\n// Simulate directory scanning\n// In production, this would use Node.js fs module or external API\nconst files = [\n  {\n    filePath: directoryPath + '/sample1.txt',\n    fileName: 'sample1.txt',\n    fileType: 'txt',\n    collection: collectionName\n  },\n  {\n    filePath: directoryPath + '/sample2.md',\n    fileName: 'sample2.md',\n    fileType: 'md',\n    collection: collectionName\n  }\n];\n\nreturn files.map(file => ({ json: file }));"
+      },
+      "id": "file-system-scan",
+      "name": "Scan Directory",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter files for document processing\nconst items = $input.all();\nconst filteredItems = [];\n\n// Binary file extensions to skip\nconst binaryExtensions = [\n  '.exe', '.dll', '.so', '.dylib', '.bin', '.app', '.deb', '.rpm', '.msi',\n  '.zip', '.tar', '.gz', '.rar', '.7z', '.iso', '.img', '.dmg',\n  '.mp3', '.mp4', '.avi', '.mov', '.wav', '.flac', '.jpg', '.jpeg',\n  '.png', '.gif', '.bmp', '.tiff', '.ico', '.svg', '.psd', '.ai',\n  '.db', '.sqlite', '.sqlite3', '.mdb', '.accdb'\n];\n\n// System files to skip\nconst systemFiles = [\n  '.DS_Store', '.Thumbs.db', '.desktop.ini', '.localized',\n  '.zshenv', '.zshrc', '.bashrc', '.profile', '.bash_profile',\n  'CodeResources', 'PkgInfo', 'Info.plist'\n];\n\nfor (const item of items) {\n  const filePath = item.json.filePath || item.json.path;\n  const fileName = filePath.split('/').pop();\n  const fileExt = filePath.split('.').pop().toLowerCase();\n  \n  // Skip if system file\n  if (systemFiles.includes(fileName)) {\n    continue;\n  }\n  \n  // Skip if binary extension\n  if (binaryExtensions.includes('.' + fileExt)) {\n    continue;\n  }\n  \n  // Skip if app bundle\n  if (filePath.includes('.app/')) {\n    continue;\n  }\n  \n  // Skip if hidden file (except .md)\n  if (fileName.startsWith('.') && !fileName.endsWith('.md')) {\n    continue;\n  }\n  \n  // Only process supported document types\n  const supportedTypes = ['.txt', '.md', '.pdf', '.docx'];\n  if (supportedTypes.includes('.' + fileExt) || !fileExt) {\n    filteredItems.push({\n      json: {\n        filePath: filePath,\n        fileName: fileName,\n        fileType: fileExt,\n        collection: $json.collection_name || 'default_docs'\n      }\n    });\n  }\n}\n\nreturn filteredItems;"
+      },
+      "id": "filter-files",
+      "name": "Filter Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Split files by type for parallel processing\nconst items = $input.all();\nconst fileTypes = {\n  pdf: [],\n  text: [],\n  docx: [],\n  other: []\n};\n\nfor (const item of items) {\n  const fileType = item.json.fileType;\n  if (fileType === 'pdf') {\n    fileTypes.pdf.push(item);\n  } else if (['txt', 'md'].includes(fileType) || !fileType) {\n    fileTypes.text.push(item);\n  } else if (fileType === 'docx') {\n    fileTypes.docx.push(item);\n  } else {\n    fileTypes.other.push(item);\n  }\n}\n\n// Return each type as separate output\nreturn [\n  { json: { files: fileTypes.pdf, type: 'pdf' } },\n  { json: { files: fileTypes.text, type: 'text' } },\n  { json: { files: fileTypes.docx, type: 'docx' } },\n  { json: { files: fileTypes.other, type: 'other' } }\n];"
+      },
+      "id": "split-by-type",
+      "name": "Split by File Type",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process PDF files\nconst items = $input.all();\nconst processedItems = [];\n\nfor (const item of items) {\n  const files = item.json.files;\n  \n  for (const file of files) {\n    try {\n      // Simulate PDF processing\n      // In real implementation, you'd use PyPDFLoader here\n      const chunks = [\n        {\n          content: `PDF Content from ${file.fileName}`,\n          metadata: {\n            source: file.filePath,\n            type: 'pdf',\n            collection: file.collection\n          }\n        }\n      ];\n      \n      processedItems.push({\n        json: {\n          chunks: chunks,\n          source: file.filePath,\n          type: 'pdf'\n        }\n      });\n    } catch (error) {\n      console.log(`Error processing PDF: ${file.filePath} - ${error.message}`);\n    }\n  }\n}\n\nreturn processedItems;"
+      },
+      "id": "process-pdf",
+      "name": "Process PDF Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process text files\nconst items = $input.all();\nconst processedItems = [];\n\nfor (const item of items) {\n  const files = item.json.files;\n  \n  for (const file of files) {\n    try {\n      // Simulate text processing\n      // In real implementation, you'd use TextLoader here\n      const chunks = [\n        {\n          content: `Text Content from ${file.fileName}`,\n          metadata: {\n            source: file.filePath,\n            type: 'text',\n            collection: file.collection\n          }\n        }\n      ];\n      \n      processedItems.push({\n        json: {\n          chunks: chunks,\n          source: file.filePath,\n          type: 'text'\n        }\n      });\n    } catch (error) {\n      console.log(`Error processing text: ${file.filePath} - ${error.message}`);\n    }\n  }\n}\n\nreturn processedItems;"
+      },
+      "id": "process-text",
+      "name": "Process Text Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process DOCX files\nconst items = $input.all();\nconst processedItems = [];\n\nfor (const item of items) {\n  const files = item.json.files;\n  \n  for (const file of files) {\n    try {\n      // Simulate DOCX processing\n      // In real implementation, you'd use Docx2txtLoader here\n      const chunks = [\n        {\n          content: `DOCX Content from ${file.fileName}`,\n          metadata: {\n            source: file.filePath,\n            type: 'docx',\n            collection: file.collection\n          }\n        }\n      ];\n      \n      processedItems.push({\n        json: {\n          chunks: chunks,\n          source: file.filePath,\n          type: 'docx'\n        }\n      });\n    } catch (error) {\n      console.log(`Error processing DOCX: ${file.filePath} - ${error.message}`);\n    }\n  }\n}\n\nreturn processedItems;"
+      },
+      "id": "process-docx",
+      "name": "Process DOCX Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine all processed chunks\nconst items = $input.all();\nconst allChunks = [];\nlet totalFiles = 0;\nlet processedFiles = 0;\n\nfor (const item of items) {\n  if (item.json.chunks) {\n    allChunks.push(...item.json.chunks);\n    processedFiles++;\n  }\n  totalFiles++;\n}\n\nreturn [{\n  json: {\n    chunks: allChunks,\n    stats: {\n      totalFiles: totalFiles,\n      processedFiles: processedFiles,\n      totalChunks: allChunks.length\n    }\n  }\n}];"
+      },
+      "id": "combine-chunks",
+      "name": "Combine Chunks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Simulate ChromaDB ingestion\n// In production, this would call your Python RAG API\nconst chunks = $json.chunks || [];\nconst collection = $json.collection || 'default_docs';\n\n// Simulate successful ingestion\nconst result = {\n  status: 'success',\n  collection: collection,\n  chunksIngested: chunks.length,\n  timestamp: new Date().toISOString(),\n  stats: $json.stats\n};\n\nreturn [{ json: result }];"
+      },
+      "id": "chromadb-ingest",
+      "name": "Ingest to ChromaDB",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "success-condition",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-success",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"message\": \"Document ingestion completed successfully!\",\n  \"stats\": {\n    \"filesProcessed\": {{ $json.stats?.processedFiles || 0 }},\n    \"totalChunks\": {{ $json.stats?.totalChunks || 0 }},\n    \"collection\": \"{{ $json.collection || 'default_docs' }}\"\n  },\n  \"timestamp\": \"{{ new Date().toISOString() }}\"\n}"
+      },
+      "id": "success-notification",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2000, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseCode": 500,
+        "responseBody": "={\n  \"status\": \"error\",\n  \"message\": \"Document ingestion failed!\",\n  \"error\": \"{{ $json.error || 'Unknown error' }}\",\n  \"collection\": \"{{ $json.collection || 'default_docs' }}\",\n  \"timestamp\": \"{{ new Date().toISOString() }}\"\n}"
+      },
+      "id": "error-notification",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2000, 400]
+    }
+  ],
+  "connections": {
+    "Document Ingestion Webhook": {
+      "main": [
+        [
+          {
+            "node": "Scan Directory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scan Directory": {
+      "main": [
+        [
+          {
+            "node": "Filter Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Files": {
+      "main": [
+        [
+          {
+            "node": "Split by File Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split by File Type": {
+      "main": [
+        [
+          {
+            "node": "Process PDF Files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process Text Files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process DOCX Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process PDF Files": {
+      "main": [
+        [
+          {
+            "node": "Combine Chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Text Files": {
+      "main": [
+        [
+          {
+            "node": "Combine Chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process DOCX Files": {
+      "main": [
+        [
+          {
+            "node": "Combine Chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine Chunks": {
+      "main": [
+        [
+          {
+            "node": "Ingest to ChromaDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ingest to ChromaDB": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Success Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-15T10:30:00.000Z",
+  "versionId": "1"
+}

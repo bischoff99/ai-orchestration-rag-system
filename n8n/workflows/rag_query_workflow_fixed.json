@@ -1,0 +1,186 @@
+{
+  "name": "RAG Query Processing Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "rag-query",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "RAG Query Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "rag-query-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process incoming query\nconst query = $json.query || $json.body?.query;\nconst collection = $json.collection || $json.body?.collection || 'default_docs';\nconst k = $json.k || $json.body?.k || 5;\nconst model = $json.model || $json.body?.model || 'llama-assistant';\n\nif (!query) {\n  return [{\n    json: {\n      error: 'Query is required',\n      status: 'error'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    query: query,\n    collection: collection,\n    k: k,\n    model: model,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "process-query",
+      "name": "Process Query",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "error-condition",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "error",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-error",
+      "name": "Check for Error",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/search",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"query\": \"{{ $json.query }}\",\n  \"collection\": \"{{ $json.collection }}\",\n  \"k\": {{ $json.k }}\n}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "chromadb-search",
+      "name": "Search ChromaDB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"model\": \"{{ $json.model }}\",\n  \"prompt\": \"Based on the following context, answer the question. If the answer is not in the context, say so.\\n\\nContext:\\n{{ $json.context }}\\n\\nQuestion: {{ $json.query }}\\n\\nAnswer:\",\n  \"stream\": false,\n  \"options\": {\n    \"temperature\": 0.1,\n    \"top_p\": 0.9\n  }\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "ollama-generate",
+      "name": "Generate with Ollama",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseCode": 400,
+        "responseBody": "={\n  \"error\": \"{{ $json.error }}\",\n  \"status\": \"error\",\n  \"timestamp\": \"{{ new Date().toISOString() }}\"\n}"
+      },
+      "id": "error-response",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 400]
+    }
+  ],
+  "connections": {
+    "RAG Query Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Query": {
+      "main": [
+        [
+          {
+            "node": "Check for Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for Error": {
+      "main": [
+        [
+          {
+            "node": "Search ChromaDB",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search ChromaDB": {
+      "main": [
+        [
+          {
+            "node": "Generate with Ollama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate with Ollama": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-15T10:30:00.000Z",
+  "versionId": "1"
+}

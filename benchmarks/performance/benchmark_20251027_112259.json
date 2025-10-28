@@ -1,0 +1,68 @@
+{
+  "benchmark_info": {
+    "date": "2025-10-27T11:22:59.806900",
+    "description": "Performance benchmarking of Ollama models"
+  },
+  "results": [
+    {
+      "model": "gemma2:2b",
+      "timestamp": "2025-10-27T11:21:51.139841",
+      "prompt": "Explain quantum computing in simple terms.",
+      "duration_sec": 3.934910297393799,
+      "tokens_generated": 274,
+      "tokens_per_sec": 69.63309943341729,
+      "success": true,
+      "error": null
+    },
+    {
+      "model": "llama-assistant",
+      "timestamp": "2025-10-27T11:21:55.574424",
+      "prompt": "What are the benefits of model quantization?",
+      "duration_sec": 4.434316158294678,
+      "tokens_generated": 323,
+      "tokens_per_sec": 72.8409947486057,
+      "success": true,
+      "error": null
+    },
+    {
+      "model": "llama70b-analyst",
+      "timestamp": "2025-10-27T11:22:25.588542",
+      "prompt": "Analyze the performance trade-offs between different quantization methods.",
+      "duration_sec": 30,
+      "tokens_generated": 0,
+      "tokens_per_sec": 0,
+      "success": false,
+      "error": "Timeout after 30 seconds"
+    },
+    {
+      "model": "mistral-summarizer",
+      "timestamp": "2025-10-27T11:22:29.753700",
+      "prompt": "Summarize the key advantages of using quantized models in production.",
+      "duration_sec": 4.1648359298706055,
+      "tokens_generated": 169,
+      "tokens_per_sec": 40.5778289578986,
+      "success": true,
+      "error": null
+    },
+    {
+      "model": "qwen-coder32",
+      "timestamp": "2025-10-27T11:22:59.766972",
+      "prompt": "Write a function to calculate fibonacci numbers efficiently.",
+      "duration_sec": 30,
+      "tokens_generated": 0,
+      "tokens_per_sec": 0,
+      "success": false,
+      "error": "Timeout after 30 seconds"
+    },
+    {
+      "model": "embedder",
+      "timestamp": "2025-10-27T11:22:59.806601",
+      "prompt": "Calculate embedding for machine learning",
+      "duration_sec": 0.03937792778015137,
+      "tokens_generated": 0,
+      "tokens_per_sec": 0.0,
+      "success": false,
+      "error": "\u001b[?25l\u001b[?2026h\u001b[?25l\u001b[1G\u001b[K\u001b[?25h\u001b[?2026l\u001b[2K\u001b[1G\u001b[?25hError: 400 Bad Request: \"embedder\" does not support generate\n"
+    }
+  ]
+}

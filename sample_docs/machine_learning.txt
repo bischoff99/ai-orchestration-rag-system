@@ -1,0 +1,30 @@
+Machine Learning Basics
+
+Machine Learning (ML) is a subset of artificial intelligence that enables computers to learn from data.
+
+Types of Machine Learning:
+
+1. Supervised Learning:
+   - Uses labeled training data
+   - Examples: Classification, Regression
+   - Algorithms: Linear Regression, Decision Trees, Random Forest
+
+2. Unsupervised Learning:
+   - Works with unlabeled data
+   - Examples: Clustering, Dimensionality Reduction
+   - Algorithms: K-Means, PCA
+
+3. Reinforcement Learning:
+   - Learns through interaction with environment
+   - Examples: Game playing, Robotics
+
+Popular Python Libraries:
+- Scikit-learn: General purpose ML
+- TensorFlow: Deep learning framework
+- PyTorch: Deep learning with dynamic graphs
+- Pandas: Data manipulation
+- NumPy: Numerical computing
+
+Evaluation Metrics:
+- Classification: Accuracy, Precision, Recall, F1-Score
+- Regression: MSE, RMSE, MAE, R²

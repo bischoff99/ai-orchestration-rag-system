@@ -1,0 +1,28 @@
+{
+  "total_examples": 249,
+  "domains": {
+    "general": 5,
+    "docker": 53,
+    "machine_learning": 40,
+    "python": 51,
+    "api_design": 50,
+    "code_generation": 50
+  },
+  "sources": {
+    "existing": 5,
+    "sample_docs": 7,
+    "synthetic": 237
+  },
+  "quality_distribution": {
+    "excellent": 14,
+    "good": 234,
+    "acceptable": 0,
+    "poor": 1
+  },
+  "average_lengths": {
+    "instruction": 8.244979919678714,
+    "output": 27.546184738955823,
+    "total": 35.791164658634536
+  },
+  "generated_at": "2025-10-28T06:29:11.605228"
+}

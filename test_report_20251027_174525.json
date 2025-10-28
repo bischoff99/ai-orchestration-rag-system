@@ -1,0 +1,290 @@
+{
+  "timestamp": "2025-10-27T17:45:25.669325",
+  "total_tests": 40,
+  "passed": 34,
+  "failed": 6,
+  "warnings": 0,
+  "total_time": 8.987761974334717,
+  "results": [
+    {
+      "test": "PyTorch",
+      "status": "PASS",
+      "message": "Version: 2.9.0",
+      "timestamp": "2025-10-27T17:45:17.515179",
+      "details": {}
+    },
+    {
+      "test": "Transformers",
+      "status": "PASS",
+      "message": "Version: 4.44.2",
+      "timestamp": "2025-10-27T17:45:17.630450",
+      "details": {}
+    },
+    {
+      "test": "ChromaDB",
+      "status": "PASS",
+      "message": "Version: 1.2.2",
+      "timestamp": "2025-10-27T17:45:18.003674",
+      "details": {}
+    },
+    {
+      "test": "FastAPI",
+      "status": "FAIL",
+      "message": "Not installed: No module named 'fastapi'",
+      "timestamp": "2025-10-27T17:45:18.003731",
+      "details": {}
+    },
+    {
+      "test": "Script rag_query.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003739",
+      "details": {}
+    },
+    {
+      "test": "Script ingest_documents.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003745",
+      "details": {}
+    },
+    {
+      "test": "Script fine_tune_qlora.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003749",
+      "details": {}
+    },
+    {
+      "test": "Script evaluate_rag.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003753",
+      "details": {}
+    },
+    {
+      "test": "Script comprehensive_ingestion.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003758",
+      "details": {}
+    },
+    {
+      "test": "Config rag_config.json",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003765",
+      "details": {}
+    },
+    {
+      "test": "Config runtime.yaml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.003769",
+      "details": {}
+    },
+    {
+      "test": "Workflow document_ingestion_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 12 nodes",
+      "timestamp": "2025-10-27T17:45:18.003857",
+      "details": {}
+    },
+    {
+      "test": "Workflow rag_query_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 9 nodes",
+      "timestamp": "2025-10-27T17:45:18.003914",
+      "details": {}
+    },
+    {
+      "test": "Workflow monitoring_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 8 nodes",
+      "timestamp": "2025-10-27T17:45:18.003984",
+      "details": {}
+    },
+    {
+      "test": "Workflow production_rag_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 11 nodes",
+      "timestamp": "2025-10-27T17:45:18.004038",
+      "details": {}
+    },
+    {
+      "test": "Docker docker-compose.yml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004047",
+      "details": {}
+    },
+    {
+      "test": "Docker docker-compose.override.yml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004051",
+      "details": {}
+    },
+    {
+      "test": "Docker requirements.txt",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004054",
+      "details": {}
+    },
+    {
+      "test": "Docker .env.example",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004058",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile rag-api.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004062",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile training.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004066",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile monitoring.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004070",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile web-interface.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004075",
+      "details": {}
+    },
+    {
+      "test": "API api_integration.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004080",
+      "details": {}
+    },
+    {
+      "test": "API test_workflows.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004084",
+      "details": {}
+    },
+    {
+      "test": "API rag_api.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004088",
+      "details": {}
+    },
+    {
+      "test": "API monitoring_service.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:45:18.004093",
+      "details": {}
+    },
+    {
+      "test": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004098",
+      "details": {}
+    },
+    {
+      "test": "Directory workflows",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004103",
+      "details": {}
+    },
+    {
+      "test": "Directory docker",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004107",
+      "details": {}
+    },
+    {
+      "test": "Directory configs",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004111",
+      "details": {}
+    },
+    {
+      "test": "Directory vector_db",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004116",
+      "details": {}
+    },
+    {
+      "test": "Directory fine_tuned_models",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004120",
+      "details": {}
+    },
+    {
+      "test": "Directory sample_docs",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:45:18.004125",
+      "details": {}
+    },
+    {
+      "test": "RAG Query Import",
+      "status": "FAIL",
+      "message": "Import failed: cannot import name 'query_rag_system' from 'rag_query' (/Users/andrejsp/ai/scripts/rag_query.py)",
+      "timestamp": "2025-10-27T17:45:20.591724",
+      "details": {}
+    },
+    {
+      "test": "Document Ingestion Import",
+      "status": "FAIL",
+      "message": "Import failed: cannot import name 'ingest_directory' from 'ingest_documents' (/Users/andrejsp/ai/scripts/ingest_documents.py)",
+      "timestamp": "2025-10-27T17:45:20.592717",
+      "details": {}
+    },
+    {
+      "test": "Fine-tuning Import",
+      "status": "FAIL",
+      "message": "Import failed: cannot import name 'fine_tune_model' from 'fine_tune_qlora' (/Users/andrejsp/ai/scripts/fine_tune_qlora.py)",
+      "timestamp": "2025-10-27T17:45:20.659120",
+      "details": {}
+    },
+    {
+      "test": "Ollama Service",
+      "status": "PASS",
+      "message": "Running with 14 models",
+      "timestamp": "2025-10-27T17:45:20.665700",
+      "details": {}
+    },
+    {
+      "test": "ChromaDB Service",
+      "status": "FAIL",
+      "message": "Not accessible: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/heartbeat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1341e4f50>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+      "timestamp": "2025-10-27T17:45:20.666763",
+      "details": {}
+    },
+    {
+      "test": "n8n Service",
+      "status": "FAIL",
+      "message": "Not accessible: HTTPConnectionPool(host='localhost', port=5678): Read timed out. (read timeout=5)",
+      "timestamp": "2025-10-27T17:45:25.668827",
+      "details": {}
+    }
+  ]
+}

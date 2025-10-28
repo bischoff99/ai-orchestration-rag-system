@@ -1,0 +1,56 @@
+{
+  "total_downloaded": 0,
+  "total_filtered": 0,
+  "datasets": {
+    "alpaca": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "fineweb_edu": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "gsm8k": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "chatgpt_prompts": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "github_code_2025": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "code_alpaca": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "wikipedia_python": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "ml_questions": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "docker_docs": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    },
+    "api_design": {
+      "downloaded": 0,
+      "filtered": 0,
+      "quality_ratio": 0
+    }
+  }
+}

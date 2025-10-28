@@ -1,0 +1,3 @@
+gemma2:2b tps=132.73622352106167 tok/s tokens=607 time=4.572979281s
+llama3.2:latest tps=120.4073235524547 tok/s tokens=561 time=4.659185035s
+llama70b-analyst tps=8.185131804389457 tok/s tokens=661 time=80.756182771s

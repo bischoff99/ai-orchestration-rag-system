@@ -1,0 +1,290 @@
+{
+  "timestamp": "2025-10-27T17:44:55.587776",
+  "total_tests": 40,
+  "passed": 34,
+  "failed": 6,
+  "warnings": 0,
+  "total_time": 8.556730031967163,
+  "results": [
+    {
+      "test": "PyTorch",
+      "status": "PASS",
+      "message": "Version: 2.9.0",
+      "timestamp": "2025-10-27T17:44:47.800408",
+      "details": {}
+    },
+    {
+      "test": "Transformers",
+      "status": "PASS",
+      "message": "Version: 4.57.1",
+      "timestamp": "2025-10-27T17:44:50.422858",
+      "details": {}
+    },
+    {
+      "test": "ChromaDB",
+      "status": "FAIL",
+      "message": "Not installed: `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.12/migration/#basesettings-has-moved-to-pydantic-settings for more details.\n\nFor further information visit https://errors.pydantic.dev/2.12/u/import-error",
+      "timestamp": "2025-10-27T17:44:50.459621",
+      "details": {}
+    },
+    {
+      "test": "FastAPI",
+      "status": "PASS",
+      "message": "Version: 0.120.0",
+      "timestamp": "2025-10-27T17:44:50.564278",
+      "details": {}
+    },
+    {
+      "test": "Script rag_query.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564295",
+      "details": {}
+    },
+    {
+      "test": "Script ingest_documents.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564301",
+      "details": {}
+    },
+    {
+      "test": "Script fine_tune_qlora.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564305",
+      "details": {}
+    },
+    {
+      "test": "Script evaluate_rag.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564309",
+      "details": {}
+    },
+    {
+      "test": "Script comprehensive_ingestion.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564313",
+      "details": {}
+    },
+    {
+      "test": "Config rag_config.json",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564320",
+      "details": {}
+    },
+    {
+      "test": "Config runtime.yaml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564324",
+      "details": {}
+    },
+    {
+      "test": "Workflow document_ingestion_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 12 nodes",
+      "timestamp": "2025-10-27T17:44:50.564420",
+      "details": {}
+    },
+    {
+      "test": "Workflow rag_query_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 9 nodes",
+      "timestamp": "2025-10-27T17:44:50.564487",
+      "details": {}
+    },
+    {
+      "test": "Workflow monitoring_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 8 nodes",
+      "timestamp": "2025-10-27T17:44:50.564565",
+      "details": {}
+    },
+    {
+      "test": "Workflow production_rag_workflow.json",
+      "status": "PASS",
+      "message": "Valid JSON with 11 nodes",
+      "timestamp": "2025-10-27T17:44:50.564628",
+      "details": {}
+    },
+    {
+      "test": "Docker docker-compose.yml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564638",
+      "details": {}
+    },
+    {
+      "test": "Docker docker-compose.override.yml",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564642",
+      "details": {}
+    },
+    {
+      "test": "Docker requirements.txt",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564646",
+      "details": {}
+    },
+    {
+      "test": "Docker .env.example",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564650",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile rag-api.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564654",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile training.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564658",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile monitoring.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564662",
+      "details": {}
+    },
+    {
+      "test": "Dockerfile web-interface.Dockerfile",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564665",
+      "details": {}
+    },
+    {
+      "test": "API api_integration.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564671",
+      "details": {}
+    },
+    {
+      "test": "API test_workflows.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564675",
+      "details": {}
+    },
+    {
+      "test": "API rag_api.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564679",
+      "details": {}
+    },
+    {
+      "test": "API monitoring_service.py",
+      "status": "PASS",
+      "message": "File exists",
+      "timestamp": "2025-10-27T17:44:50.564683",
+      "details": {}
+    },
+    {
+      "test": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564688",
+      "details": {}
+    },
+    {
+      "test": "Directory workflows",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564693",
+      "details": {}
+    },
+    {
+      "test": "Directory docker",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564697",
+      "details": {}
+    },
+    {
+      "test": "Directory configs",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564702",
+      "details": {}
+    },
+    {
+      "test": "Directory vector_db",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564706",
+      "details": {}
+    },
+    {
+      "test": "Directory fine_tuned_models",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564711",
+      "details": {}
+    },
+    {
+      "test": "Directory sample_docs",
+      "status": "PASS",
+      "message": "Directory exists",
+      "timestamp": "2025-10-27T17:44:50.564716",
+      "details": {}
+    },
+    {
+      "test": "RAG Query Import",
+      "status": "FAIL",
+      "message": "Import failed: `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.12/migration/#basesettings-has-moved-to-pydantic-settings for more details.\n\nFor further information visit https://errors.pydantic.dev/2.12/u/import-error",
+      "timestamp": "2025-10-27T17:44:50.566328",
+      "details": {}
+    },
+    {
+      "test": "Document Ingestion Import",
+      "status": "FAIL",
+      "message": "Import failed: `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.12/migration/#basesettings-has-moved-to-pydantic-settings for more details.\n\nFor further information visit https://errors.pydantic.dev/2.12/u/import-error",
+      "timestamp": "2025-10-27T17:44:50.567673",
+      "details": {}
+    },
+    {
+      "test": "Fine-tuning Import",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'mlx'",
+      "timestamp": "2025-10-27T17:44:50.568953",
+      "details": {}
+    },
+    {
+      "test": "Ollama Service",
+      "status": "PASS",
+      "message": "Running with 14 models",
+      "timestamp": "2025-10-27T17:44:50.584095",
+      "details": {}
+    },
+    {
+      "test": "ChromaDB Service",
+      "status": "FAIL",
+      "message": "Not accessible: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/heartbeat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10e1f9d10>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+      "timestamp": "2025-10-27T17:44:50.585064",
+      "details": {}
+    },
+    {
+      "test": "n8n Service",
+      "status": "FAIL",
+      "message": "Not accessible: HTTPConnectionPool(host='localhost', port=5678): Read timed out. (read timeout=5)",
+      "timestamp": "2025-10-27T17:44:55.587263",
+      "details": {}
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[
+]
+{"name":"llama3.3:70b-instruct-q4_0","id":"e5afe30ba419","size":"39","modified":"GB 3 minutes"},{"name":"gemma2:2b","id":"8ccf136fdd52","size":"1.6","modified":"GB About an"},{"name":"embedder:latest","id":"5ff8c2a5f4b3","size":"274","modified":"MB 2 hours"},{"name":"llama70b-analyst:latest","id":"ad194454cce3","size":"42","modified":"GB 2 hours"},{"name":"qwen-coder32:latest","id":"10edfad15193","size":"19","modified":"GB 3 hours"},{"name":"llama-assistant:latest","id":"9538dbb566a9","size":"2.0","modified":"GB 3 hours"},{"name":"llama3.2:latest","id":"a80c4f17acd5","size":"2.0","modified":"GB 3 hours"},{"name":"mistral-summarizer:latest","id":"874cd8d59010","size":"4.4","modified":"GB 3 hours"}
+]

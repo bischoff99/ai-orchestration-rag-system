@@ -1,0 +1,276 @@
+{
+  "name": "Production RAG Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "production-rag",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Production RAG Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "production-rag-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process incoming request\nconst body = $json.body || $json;\nconst action = body.action || 'query';\nconst query = body.query;\nconst collection = body.collection || 'default_docs';\nconst directory_path = body.directory_path;\nconst k = body.k || 5;\nconst model = body.model || 'llama-assistant';\n\n// Validate required fields based on action\nif (action === 'query' && !query) {\n  return [{\n    json: {\n      error: 'Query is required for query action',\n      status: 'error'\n    }\n  }];\n}\n\nif (action === 'ingest' && !directory_path) {\n  return [{\n    json: {\n      error: 'Directory path is required for ingest action',\n      status: 'error'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    action: action,\n    query: query,\n    collection: collection,\n    directory_path: directory_path,\n    k: k,\n    model: model,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "process-request",
+      "name": "Process Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "action-condition",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "query",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-action",
+      "name": "Check Action",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/search",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"query\": \"{{ $json.query }}\",\n  \"collection\": \"{{ $json.collection }}\",\n  \"k\": {{ $json.k }}\n}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "search-chromadb",
+      "name": "Search ChromaDB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format context from search results\nconst searchResults = $json.results || [];\nconst context = searchResults.map((result, index) => {\n  return `[${index + 1}] ${result.content || result.text || result.document}`;\n}).join('\\n\\n');\n\nconst sources = searchResults.map((result, index) => {\n  return {\n    index: index + 1,\n    source: result.metadata?.source || 'Unknown',\n    score: result.score || result.distance || 0\n  };\n});\n\nreturn [{\n  json: {\n    context: context,\n    sources: sources,\n    query: $json.query,\n    collection: $json.collection,\n    model: $json.model\n  }\n}];"
+      },
+      "id": "format-context",
+      "name": "Format Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"model\": \"{{ $json.model }}\",\n  \"prompt\": \"Based on the following context, answer the question. If the answer is not in the context, say so.\\n\\nContext:\\n{{ $json.context }}\\n\\nQuestion: {{ $json.query }}\\n\\nAnswer:\",\n  \"stream\": false,\n  \"options\": {\n    \"temperature\": 0.1,\n    \"top_p\": 0.9\n  }\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "generate-response",
+      "name": "Generate Response",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format final response\nconst ollamaResponse = $json.response || $json.answer || 'No response generated';\nconst sources = $json.sources || [];\nconst query = $json.query;\n\nconst response = {\n  answer: ollamaResponse,\n  sources: sources,\n  query: query,\n  timestamp: new Date().toISOString(),\n  model: $json.model,\n  collection: $json.collection,\n  action: 'query'\n};\n\nreturn [{\n  json: response\n}];"
+      },
+      "id": "format-query-response",
+      "name": "Format Query Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/ingest",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"directory_path\": \"{{ $json.directory_path }}\",\n  \"collection\": \"{{ $json.collection }}\"\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "ingest-documents",
+      "name": "Ingest Documents",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format ingestion response\nconst result = $json;\n\nconst response = {\n  status: result.status || 'success',\n  message: 'Document ingestion completed',\n  collection: $json.collection,\n  directory_path: $json.directory_path,\n  stats: result.stats || {},\n  timestamp: new Date().toISOString(),\n  action: 'ingest'\n};\n\nreturn [{\n  json: response\n}];"
+      },
+      "id": "format-ingest-response",
+      "name": "Format Ingest Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseCode": 400,
+        "responseBody": "={\n  \"error\": \"{{ $json.error }}\",\n  \"status\": \"error\",\n  \"timestamp\": \"{{ new Date().toISOString() }}\"\n}"
+      },
+      "id": "error-response",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 500]
+    }
+  ],
+  "connections": {
+    "Production RAG Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Request": {
+      "main": [
+        [
+          {
+            "node": "Check Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Action": {
+      "main": [
+        [
+          {
+            "node": "Search ChromaDB",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ingest Documents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search ChromaDB": {
+      "main": [
+        [
+          {
+            "node": "Format Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Context": {
+      "main": [
+        [
+          {
+            "node": "Generate Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Response": {
+      "main": [
+        [
+          {
+            "node": "Format Query Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Query Response": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ingest Documents": {
+      "main": [
+        [
+          {
+            "node": "Format Ingest Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Ingest Response": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["production", "rag"],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-15T10:30:00.000Z",
+  "versionId": "1"
+}

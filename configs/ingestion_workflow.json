@@ -1,0 +1,26 @@
+{
+  "name": "Continuous RAG Ingestion Pipeline",
+  "description": "Monitors directories and ingests new documents automatically",
+  "monitored_directories": [
+    "/Users/andrejsp/ai/sample_docs",
+    "/Users/andrejsp/Downloads",
+    "/Users/andrejsp/Documents"
+  ],
+  "collections": {
+    "general_knowledge": "General knowledge documents",
+    "technical_docs": "Technical documentation",
+    "code_samples": "Code examples and snippets",
+    "research_papers": "Research papers and articles"
+  },
+  "processing_rules": {
+    "file_types": [".txt", ".md", ".pdf", ".docx"],
+    "chunk_size": 1000,
+    "max_file_size": 10485760,
+    "parallel_workers": 4
+  },
+  "monitoring": {
+    "health_check_interval": 60,
+    "performance_metrics": true,
+    "error_tracking": true
+  }
+}

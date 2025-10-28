@@ -1,0 +1,42 @@
+[
+  {
+    "instruction": "Write a Python function to calculate fibonacci numbers",
+    "input": "n = 10",
+    "output": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(10))  # Output: 55",
+    "source": "existing",
+    "domain": "general",
+    "quality_score": 0.8
+  },
+  {
+    "instruction": "Write a SQL query to find duplicate records",
+    "input": "table with id, name, email columns",
+    "output": "SELECT name, email, COUNT(*) as count\nFROM users\nGROUP BY name, email\nHAVING COUNT(*) > 1;",
+    "source": "existing",
+    "domain": "general",
+    "quality_score": 0.8
+  },
+  {
+    "instruction": "What is the difference between SQL and NoSQL databases?",
+    "input": "",
+    "output": "SQL databases are relational and use structured query language, while NoSQL databases are non-relational and can store unstructured data. SQL databases are better for complex queries and ACID compliance, while NoSQL databases excel at scalability and handling large volumes of diverse data.",
+    "source": "existing",
+    "domain": "general",
+    "quality_score": 0.8
+  },
+  {
+    "instruction": "Create a decision tree for handling customer support tickets",
+    "input": "Tickets can be technical, billing, or general inquiries",
+    "output": "1. Categorize ticket type\n2. If technical: Route to engineering team\n3. If billing: Route to finance team\n4. If general: Route to customer service\n5. Set priority based on severity\n6. Assign to appropriate agent",
+    "source": "existing",
+    "domain": "general",
+    "quality_score": 0.8
+  },
+  {
+    "instruction": "Design a CI/CD pipeline for a web application",
+    "input": "Application uses Docker and needs automated testing",
+    "output": "1. Code commit triggers pipeline\n2. Run automated tests\n3. Build Docker image\n4. Security scan\n5. Deploy to staging\n6. Run integration tests\n7. Deploy to production\n8. Monitor deployment",
+    "source": "existing",
+    "domain": "general",
+    "quality_score": 0.8
+  }
+]

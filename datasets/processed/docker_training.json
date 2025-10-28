@@ -1,0 +1,426 @@
+[
+  {
+    "instruction": "Explain how to use key concepts: in Docker",
+    "input": "",
+    "output": "1. Dockerfile: Instructions to build a Docker image 2. Docker Image: A read-only template for creating containers 3. Docker Container: A running instance of an image 4. Docker Compose: Tool for multi-container applications",
+    "source": "sample_docs",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "What is basic dockerfile: and how does it work in Docker?",
+    "input": "",
+    "output": "FROM python:3.9-slim WORKDIR /app COPY requirements.txt . RUN pip install -r requirements.txt COPY . . EXPOSE 8000 CMD [\"python\", \"app.py\"]",
+    "source": "sample_docs",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "What is common commands: and how does it work in Docker?",
+    "input": "",
+    "output": "- docker build -t myapp . - docker run -p 8000:8000 myapp - docker-compose up - docker ps - docker logs <container_id>",
+    "source": "sample_docs",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 2. Use multi-stage builds to reduce final image size docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 3. Use .dockerignore to exclude unnecessary files docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 3. Use .dockerignore to exclude unnecessary files docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 2. Use multi-stage builds to reduce final image size docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 3. Use .dockerignore to exclude unnecessary files docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 3. Use .dockerignore to exclude unnecessary files docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 3. Use .dockerignore to exclude unnecessary files docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 3. Use .dockerignore to exclude unnecessary files docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you optimize image size with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 2. Use multi-stage builds to reduce final image size docker build -t myapp . Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To deploy a web application with Docker: 1. Create a Dockerfile with FROM, COPY, RUN, and CMD instructions docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To optimize image size with Docker: 2. Use multi-stage builds to reduce final image size docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you create a multi-stage build with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 2. Use multi-stage builds to reduce final image size docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you deploy a web application with Docker?",
+    "input": "",
+    "output": "To create a multi-stage build with Docker: 2. Use multi-stage builds to reduce final image size docker run -p 3000:3000 myapp Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  },
+  {
+    "instruction": "How do you set up a development environment with Docker?",
+    "input": "",
+    "output": "To set up a development environment with Docker: 3. Use .dockerignore to exclude unnecessary files docker-compose up -d Use specific image tags, minimize layers, use multi-stage builds",
+    "source": "synthetic",
+    "domain": "docker",
+    "quality_score": 0.7000000000000001
+  }
+]

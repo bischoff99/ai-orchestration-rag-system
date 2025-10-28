@@ -1,0 +1,249 @@
+{
+  "benchmark_info": {
+    "date": "2025-10-27T11:19:09.989783",
+    "tool": "ollama_benchmark.py",
+    "description": "Performance benchmarking of Ollama models with different quantization levels"
+  },
+  "results": [
+    {
+      "model": "embedder",
+      "timestamp": "2025-10-27T11:13:42.625123",
+      "system_info": {
+        "timestamp": "2025-10-27T11:13:41.508701",
+        "ram_total": 128.0,
+        "ram_available": 88.75083923339844,
+        "cpu_count": 16,
+        "cpu_percent": 28.7
+      },
+      "test_prompt": "Calculate the embedding vector for: machine learning",
+      "iterations": 3,
+      "metrics": [
+        {
+          "iteration": 1,
+          "duration_sec": 0.05259275436401367,
+          "ram_used_gb": 0.0010528564453125,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0.0,
+          "success": false,
+          "error": "\u001b[?25l\u001b[?2026h\u001b[?25l\u001b[1G\u001b[K\u001b[?25h\u001b[?2026l\u001b[2K\u001b[1G\u001b[?25hError: 400 Bad Request: \"embedder\" does not support generate\n"
+        },
+        {
+          "iteration": 2,
+          "duration_sec": 0.033907175064086914,
+          "ram_used_gb": 0.0,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0.0,
+          "success": false,
+          "error": "\u001b[?25l\u001b[?2026h\u001b[?25l\u001b[1G\u001b[K\u001b[?25h\u001b[?2026l\u001b[2K\u001b[1G\u001b[?25hError: 400 Bad Request: \"embedder\" does not support generate\n"
+        },
+        {
+          "iteration": 3,
+          "duration_sec": 0.02451181411743164,
+          "ram_used_gb": 0.0,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0.0,
+          "success": false,
+          "error": "\u001b[?25l\u001b[?2026h\u001b[?25l\u001b[1G\u001b[K\u001b[?25h\u001b[?2026l\u001b[2K\u001b[1G\u001b[?25hError: 400 Bad Request: \"embedder\" does not support generate\n"
+        }
+      ],
+      "averages": {
+        "tokens_per_sec": 0,
+        "ram_used_gb": 0,
+        "duration_sec": 0,
+        "success_rate": 0.0
+      }
+    },
+    {
+      "model": "llama-assistant",
+      "timestamp": "2025-10-27T11:13:47.708465",
+      "system_info": {
+        "timestamp": "2025-10-27T11:13:42.637981",
+        "ram_total": 128.0,
+        "ram_available": 88.74580383300781,
+        "cpu_count": 16,
+        "cpu_percent": 30.1
+      },
+      "test_prompt": "Explain the concept of quantization in neural networks in 2 sentences.",
+      "iterations": 3,
+      "metrics": [
+        {
+          "iteration": 1,
+          "duration_sec": 1.950221061706543,
+          "ram_used_gb": 1.1170501708984375,
+          "tokens_generated": 62,
+          "tokens_per_sec": 31.791267778508573,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "duration_sec": 1.0035691261291504,
+          "ram_used_gb": -0.0288543701171875,
+          "tokens_generated": 68,
+          "tokens_per_sec": 67.75816257150282,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 3,
+          "duration_sec": 1.1110479831695557,
+          "ram_used_gb": 0.01751708984375,
+          "tokens_generated": 66,
+          "tokens_per_sec": 59.40337501150733,
+          "success": true,
+          "error": null
+        }
+      ],
+      "averages": {
+        "tokens_per_sec": 52.984268453839576,
+        "ram_used_gb": 0.3685709635416667,
+        "duration_sec": 1.3549460570017497,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "model": "llama70b-analyst",
+      "timestamp": "2025-10-27T11:16:48.750323",
+      "system_info": {
+        "timestamp": "2025-10-27T11:13:47.725382",
+        "ram_total": 128.0,
+        "ram_available": 87.55284118652344,
+        "cpu_count": 16,
+        "cpu_percent": 28.0
+      },
+      "test_prompt": "Analyze the trade-offs between model accuracy and inference speed in large language models.",
+      "iterations": 3,
+      "metrics": [
+        {
+          "iteration": 1,
+          "duration_sec": 60,
+          "ram_used_gb": 0,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0,
+          "success": false,
+          "error": "Timeout after 60 seconds"
+        },
+        {
+          "iteration": 2,
+          "duration_sec": 60,
+          "ram_used_gb": 0,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0,
+          "success": false,
+          "error": "Timeout after 60 seconds"
+        },
+        {
+          "iteration": 3,
+          "duration_sec": 60,
+          "ram_used_gb": 0,
+          "tokens_generated": 0,
+          "tokens_per_sec": 0,
+          "success": false,
+          "error": "Timeout after 60 seconds"
+        }
+      ],
+      "averages": {
+        "tokens_per_sec": 0,
+        "ram_used_gb": 0,
+        "duration_sec": 0,
+        "success_rate": 0.0
+      }
+    },
+    {
+      "model": "mistral-summarizer",
+      "timestamp": "2025-10-27T11:17:05.859277",
+      "system_info": {
+        "timestamp": "2025-10-27T11:16:48.768044",
+        "ram_total": 128.0,
+        "ram_available": 50.40968322753906,
+        "cpu_count": 16,
+        "cpu_percent": 30.8
+      },
+      "test_prompt": "Summarize the key benefits and challenges of model quantization for deployment.",
+      "iterations": 3,
+      "metrics": [
+        {
+          "iteration": 1,
+          "duration_sec": 6.942584991455078,
+          "ram_used_gb": -14.950820922851562,
+          "tokens_generated": 177,
+          "tokens_per_sec": 25.494826526121223,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "duration_sec": 4.295783281326294,
+          "ram_used_gb": 0.2143096923828125,
+          "tokens_generated": 157,
+          "tokens_per_sec": 36.54746753228373,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 3,
+          "duration_sec": 4.8473029136657715,
+          "ram_used_gb": 0.4777374267578125,
+          "tokens_generated": 176,
+          "tokens_per_sec": 36.30885115593076,
+          "success": true,
+          "error": null
+        }
+      ],
+      "averages": {
+        "tokens_per_sec": 32.783715071445236,
+        "ram_used_gb": -4.7529246012369795,
+        "duration_sec": 5.361890395482381,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "model": "qwen-coder32",
+      "timestamp": "2025-10-27T11:19:09.989431",
+      "system_info": {
+        "timestamp": "2025-10-27T11:17:05.875402",
+        "ram_total": 128.0,
+        "ram_available": 64.77452087402344,
+        "cpu_count": 16,
+        "cpu_percent": 35.4
+      },
+      "test_prompt": "Write a Python function to calculate Fibonacci numbers with memoization.",
+      "iterations": 3,
+      "metrics": [
+        {
+          "iteration": 1,
+          "duration_sec": 45.59263491630554,
+          "ram_used_gb": 6.7756500244140625,
+          "tokens_generated": 311,
+          "tokens_per_sec": 6.82127717713405,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "duration_sec": 38.32336401939392,
+          "ram_used_gb": 0.0289154052734375,
+          "tokens_generated": 332,
+          "tokens_per_sec": 8.66312257535607,
+          "success": true,
+          "error": null
+        },
+        {
+          "iteration": 3,
+          "duration_sec": 39.196961879730225,
+          "ram_used_gb": 0.108795166015625,
+          "tokens_generated": 333,
+          "tokens_per_sec": 8.495556390869238,
+          "success": true,
+          "error": null
+        }
+      ],
+      "averages": {
+        "tokens_per_sec": 7.993318714453119,
+        "ram_used_gb": 2.3044535319010415,
+        "duration_sec": 41.03765360514323,
+        "success_rate": 1.0
+      }
+    }
+  ]
+}

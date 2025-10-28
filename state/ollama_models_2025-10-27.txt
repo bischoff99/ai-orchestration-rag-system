@@ -1,0 +1,13 @@
+NAME                          ID              SIZE      MODIFIED          
+embedder:latest               5c9ca613a0e3    274 MB    About an hour ago    
+llama70b-analyst:latest       3be46776575e    42 GB     About an hour ago    
+mistral-summarizer:latest     cc1cae87a594    4.4 GB    About an hour ago    
+qwen-coder32:latest           a6a6efb54422    19 GB     About an hour ago    
+llama-assistant:latest        c43bbbb65d8c    2.0 GB    About an hour ago    
+qwen2.5-coder:32b             b92d6a0bd47e    19 GB     About an hour ago    
+mistral:latest                6577803aa9a0    4.4 GB    About an hour ago    
+llama3.1:70b                  711a9e8463af    42 GB     2 hours ago          
+nomic-embed-text:latest       0a109f422b47    274 MB    2 hours ago          
+llama3.3:70b-instruct-q4_0    e5afe30ba419    39 GB     2 hours ago          
+gemma2:2b                     8ccf136fdd52    1.6 GB    3 hours ago          
+llama3.2:latest               a80c4f17acd5    2.0 GB    5 hours ago          

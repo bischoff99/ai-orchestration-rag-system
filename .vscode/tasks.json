@@ -1,0 +1,360 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // ==========================================
+    // DEVELOPMENT TASKS
+    // ==========================================
+
+    {
+      "label": "Install Dependencies",
+      "type": "shell",
+      "command": "pip",
+      "args": ["install", "-r", "requirements.txt"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Setup Virtual Environment",
+      "type": "shell",
+      "command": "python3",
+      "args": ["-m", "venv", "venv"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Activate Virtual Environment",
+      "type": "shell",
+      "command": "source",
+      "args": ["venv/bin/activate"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // TESTING TASKS
+    // ==========================================
+
+    {
+      "label": "Run All Tests",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pytest", "--verbose", "--tb=short"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+
+    {
+      "label": "Run FAISS Tests",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pytest", "test_faiss.py", "-v"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+
+    {
+      "label": "Run RAG Tests",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pytest", "test_rag_simple.py", "-v"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+
+    {
+      "label": "Run Webhook Tests",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pytest", "test_webhooks_final.py", "-v"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+
+    // ==========================================
+    // DOCKER TASKS
+    // ==========================================
+
+    {
+      "label": "Start Docker Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["up", "-d"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Stop Docker Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["down"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Restart Docker Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["restart"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // AI/ML TASKS
+    // ==========================================
+
+    {
+      "label": "FAISS Ingestion",
+      "type": "shell",
+      "command": "python",
+      "args": ["faiss_ingestion_production.py"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Test RAG System",
+      "type": "shell",
+      "command": "python",
+      "args": ["simple_rag_test.py"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // N8N WORKFLOW TASKS
+    // ==========================================
+
+    {
+      "label": "Activate N8N Workflows",
+      "type": "shell",
+      "command": "python",
+      "args": ["activate_workflows.py"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Test N8N Workflows",
+      "type": "shell",
+      "command": "python",
+      "args": ["test_n8n_workflows.py"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // DEVELOPMENT SERVERS
+    // ==========================================
+
+    {
+      "label": "Start FastAPI Server",
+      "type": "shell",
+      "command": "uvicorn",
+      "args": ["simple_rag_api:app", "--reload", "--host", "0.0.0.0", "--port", "8001"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Start RAG Demo",
+      "type": "shell",
+      "command": "python",
+      "args": ["local_rag_demo.py"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // CODE QUALITY TASKS
+    // ==========================================
+
+    {
+      "label": "Format Code with Black",
+      "type": "shell",
+      "command": "black",
+      "args": ["--line-length", "88", "."],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Lint with Flake8",
+      "type": "shell",
+      "command": "flake8",
+      "args": ["--max-line-length=88", "--extend-ignore=E203,W503", "."],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$flake8"]
+    },
+
+    {
+      "label": "Sort Imports",
+      "type": "shell",
+      "command": "isort",
+      "args": ["--profile", "black", "--line-length", "88", "."],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================
+    // CLEANUP TASKS
+    // ==========================================
+
+    {
+      "label": "Clean Cache Files",
+      "type": "shell",
+      "command": "find",
+      "args": [".", "-type", "d", "-name", "__pycache__", "-exec", "rm", "-rf", "{}", "+"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Clean Log Files",
+      "type": "shell",
+      "command": "find",
+      "args": ["logs/", "-name", "*.log", "-delete"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
