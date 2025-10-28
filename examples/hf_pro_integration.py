@@ -20,46 +20,46 @@ def explore_hf_pro_features():
     """Explore what's available with your HF Pro account"""
     print("🔍 Exploring Hugging Face Pro Features")
     print("=" * 50)
-    
+
     api = HfApi(token=HF_TOKEN)
-    
+
     # Get user info
     user_info = api.whoami()
     print(f"👤 User: {user_info['name']}")
     print(f"📧 Email: {user_info['email']}")
     print(f"🏢 Organization: {user_info.get('orgs', [{}])[0].get('name', 'Personal')}")
     print(f"💎 Pro Status: {user_info.get('pro', False)}")
-    
+
     # List your repositories
     print(f"\n📚 Your Repositories:")
     repos = api.list_repos(type="model", limit=5)
     for repo in repos:
         print(f"   - {repo.id} ({repo.private and 'Private' or 'Public'})")
-    
+
     return api
 
 def download_code_datasets():
     """Download and explore code generation datasets"""
     print(f"\n📊 Downloading Code Generation Datasets")
     print("=" * 40)
-    
+
     # Download Python code dataset
     print("🐍 Loading Python Codes 25K dataset...")
     python_dataset = load_dataset("flytech/python-codes-25k", split="train[:100]")
-    
+
     print(f"✅ Dataset loaded:")
     print(f"   - Size: {len(python_dataset)} examples")
     print(f"   - Features: {python_dataset.features}")
     print(f"   - Sample instruction: {python_dataset[0]['instruction']}")
     print(f"   - Sample output: {python_dataset[0]['output'][:100]}...")
-    
+
     return python_dataset
 
 def create_training_dataset():
     """Create a custom training dataset for your models"""
     print(f"\n🛠️  Creating Custom Training Dataset")
     print("=" * 40)
-    
+
     # Sample training data for code generation
     training_examples = [
         {
@@ -78,22 +78,22 @@ def create_training_dataset():
             "output": "SELECT c.customer_id, c.customer_name, SUM(o.order_value) as total_value\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nGROUP BY c.customer_id, c.customer_name\nORDER BY total_value DESC\nLIMIT 10;"
         }
     ]
-    
+
     # Save as JSON for training
     with open("/Users/andrejsp/ai/datasets/custom_code_training.json", "w") as f:
         json.dump(training_examples, f, indent=2)
-    
+
     print(f"✅ Custom dataset created:")
     print(f"   - File: /Users/andrejsp/ai/datasets/custom_code_training.json")
     print(f"   - Examples: {len(training_examples)}")
-    
+
     return training_examples
 
 def setup_advanced_training():
     """Set up advanced training with HF Pro features"""
     print(f"\n🚀 Setting Up Advanced Training")
     print("=" * 40)
-    
+
     # Create training configuration
     training_config = {
         "model_name": "microsoft/DialoGPT-small",
@@ -127,24 +127,24 @@ def setup_advanced_training():
             "task_type": "CAUSAL_LM"
         }
     }
-    
+
     # Save configuration
     with open("/Users/andrejsp/ai/configs/hf_pro_training_config.json", "w") as f:
         json.dump(training_config, f, indent=2)
-    
+
     print(f"✅ Training configuration saved:")
     print(f"   - Config: /Users/andrejsp/ai/configs/hf_pro_training_config.json")
     print(f"   - Model: {training_config['model_name']}")
     print(f"   - LoRA Rank: {training_config['lora_config']['r']}")
     print(f"   - Epochs: {training_config['training_args']['num_train_epochs']}")
-    
+
     return training_config
 
 def create_deployment_script():
     """Create a script to deploy trained models to Ollama"""
     print(f"\n🚀 Creating Ollama Deployment Script")
     print("=" * 40)
-    
+
     deployment_script = '''#!/bin/bash
 # Deploy Hugging Face trained model to Ollama
 
@@ -175,12 +175,12 @@ ollama create $OLLAMA_MODEL -f Modelfile
 echo "✅ Model deployed as: $OLLAMA_MODEL"
 echo "🧪 Test with: ollama run $OLLAMA_MODEL 'Write a Python function to sort a list'"
 '''
-    
+
     with open("/Users/andrejsp/ai/scripts/deploy_hf_to_ollama.sh", "w") as f:
         f.write(deployment_script)
-    
+
     os.chmod("/Users/andrejsp/ai/scripts/deploy_hf_to_ollama.sh", 0o755)
-    
+
     print(f"✅ Deployment script created:")
     print(f"   - Script: /Users/andrejsp/ai/scripts/deploy_hf_to_ollama.sh")
     print(f"   - Usage: ./deploy_hf_to_ollama.sh")
@@ -189,29 +189,29 @@ def main():
     """Main function demonstrating HF Pro integration"""
     print("🚀 Hugging Face Pro Integration with MCP Tools")
     print("=" * 60)
-    
+
     # 1. Explore Pro features
     api = explore_hf_pro_features()
-    
+
     # 2. Download code datasets
     python_dataset = download_code_datasets()
-    
+
     # 3. Create custom training dataset
     custom_dataset = create_training_dataset()
-    
+
     # 4. Set up advanced training
     training_config = setup_advanced_training()
-    
+
     # 5. Create deployment script
     create_deployment_script()
-    
+
     print(f"\n🎉 HF Pro Integration Complete!")
     print(f"\n📋 Next Steps:")
     print(f"1. 🏃 Run training: python /Users/andrejsp/ai/examples/hf_datasets_example.py")
     print(f"2. 📤 Upload to HF: huggingface-cli upload bischoff555/your-model ./output")
     print(f"3. 🚀 Deploy to Ollama: ./deploy_hf_to_ollama.sh")
     print(f"4. 🧪 Test with MCP tools: Use the HF search and model tools")
-    
+
     print(f"\n💡 Pro Features Available:")
     print(f"   - Private model repositories")
     print(f"   - Advanced training metrics")
