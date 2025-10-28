@@ -9,7 +9,9 @@ import json
 from huggingface_hub import HfApi, login
 
 # Set up your HF Pro API key
-HF_TOKEN = "REDACTED_TOKEN"
+HF_TOKEN = os.getenv("HF_TOKEN")  # Set your token as environment variable
+if not HF_TOKEN:
+    raise ValueError("Please set HF_TOKEN environment variable")
 login(token=HF_TOKEN)
 
 def quick_setup():

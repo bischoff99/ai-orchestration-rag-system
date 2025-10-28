@@ -11,7 +11,9 @@ from datasets import load_dataset
 import requests
 
 # Set up your HF Pro API key
-HF_TOKEN = "REDACTED_TOKEN"
+HF_TOKEN = os.getenv("HF_TOKEN")  # Set your token as environment variable
+if not HF_TOKEN:
+    raise ValueError("Please set HF_TOKEN environment variable")
 login(token=HF_TOKEN)
 
 def explore_hf_pro_features():
