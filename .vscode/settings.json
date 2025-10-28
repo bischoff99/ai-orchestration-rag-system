@@ -2,13 +2,17 @@
   // Workspace settings: prefer English for CodeGeeX and editor localization
   "locale": "en",
 
-  // CodeGeeX extension - try common configuration keys used by AI/code assistant extensions
-  // These keys are best-effort guesses; if the extension uses different keys check its docs or global settings.
-  "codegeex.language": "en",
-  "codegeex.locale": "en-US",
-  "codegeex.uiLanguage": "en",
-  "codegeex.preferredLanguage": "en",
-  "codegeex.translation.enabled": false,
+  // CodeGeeX extension - specific settings found from documentation
+  "Codegeex.Explanation:Language Preference": "English",
+  "Codegeex.Language": "en",
+  "Codegeex.Locale": "en-US",
+  "Codegeex.UILanguage": "en",
+  "Codegeex.PreferredLanguage": "en",
+
+  // Additional settings that might control code generation language
+  "Codegeex.CodeGeneration.Language": "en",
+  "Codegeex.Translation.Enabled": false,
+  "Codegeex.Translation.TargetLanguage": "en",
 
   // Generic AI assistant keys (other extensions sometimes use these)
   "ai-assistant.language": "en",
@@ -16,5 +20,6 @@
 
   // Disable automatic translation features that might change language
   "editor.autoDetectLanguage": true,
-  "files.autoGuessEncoding": false
+  "files.autoGuessEncoding": false,
+  "Codegeex.RepoIndex": true
 }
